@@ -6,6 +6,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 export TERM="xterm-256color"
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
@@ -32,6 +34,8 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 zinit load agkozak/zsh-z
+zinit ice depth=1
+zinit light jeffreytse/zsh-vi-mode
 
 autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
@@ -41,6 +45,8 @@ zstyle ':completion:*' menu select
 # Load powerlevel10k theme
 zinit ice depth"1" # git clone depth
 zinit light romkatv/powerlevel10k
+
+### End of Zinit's installer chunk
 
 # OMZ plugins
 zi snippet OMZP::git
@@ -52,12 +58,23 @@ zi snippet OMZP::kubectl
 # key binding
 bindkey "^U" backward-kill-line
 
-### End of Zinit's installer chunk
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+POWERLEVEL10K_MODE='nerdfont-fontconfig'
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# krew
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+# kubectl editor
+export KUBE_EDITOR="/usr/local/bin/lvim"
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 alias ls='lsd'
 alias ll='ls -l'
@@ -65,7 +82,4 @@ alias l='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
-
 alias vi='lvim'
-
-export LANG=en_US.UTF-8
