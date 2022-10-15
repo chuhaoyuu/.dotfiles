@@ -374,6 +374,7 @@ formatters.setup {
 
 -- Additional Plugins
 lvim.plugins = {
+  { "folke/tokyonight.nvim" },
   { "tpope/vim-surround" },
   -- { "karb94/neoscroll.nvim", require('neoscroll').setup() },
   { "nvim-treesitter/nvim-treesitter-textobjects" },
@@ -483,3 +484,12 @@ lvim.plugins = {
 --     require("nvim-treesitter.highlight").attach(0, "bash")
 --   end,
 -- })
+
+require("tokyonight").setup({
+    style = "night",
+    transparent = true,
+    styles = {
+       sidebars = "transparent",
+       floats = "transparent",
+    }
+})

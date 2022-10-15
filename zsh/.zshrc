@@ -55,6 +55,12 @@ zi snippet OMZP::tmux
 mkdir -p $ZSH_CACHE_DIR/completions
 zi snippet OMZP::kubectl
 
+# history
+export HISTFILE=~/.zsh_history
+HISTSIZE=1000
+SAVEHIST=1000
+setopt share_history
+
 # key binding
 bindkey "^U" backward-kill-line
 
@@ -76,10 +82,10 @@ export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-alias ls='lsd'
-alias ll='ls -l'
-alias l='ls -l'
-alias la='ls -a'
-alias lla='ls -la'
-alias lt='ls --tree'
+alias ls='lsd -l'
+alias ll='lsd -l'
+alias l='lsd -l'
+alias la='lsd -a'
+alias lla='lsd -la'
+alias lt='lsd --tree'
 alias vi='lvim'
