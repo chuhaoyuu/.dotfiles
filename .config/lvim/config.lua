@@ -30,7 +30,7 @@ lvim.log.level = "warn"
 lvim.format_on_save = false
 lvim.relativenumber = true
 lvim.transparent_window = true
-lvim.colorscheme = "onedarker"
+lvim.colorscheme = "tokyonight"
 lvim.lsp.document_highlight = false
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
@@ -114,7 +114,6 @@ lvim.builtin.telescope.defaults.mappings = {
 -- Use which-key to add extra bindings with the leader-key prefix
 lvim.builtin.which_key.setup.plugins.marks = false
 lvim.builtin.which_key.setup.plugins.registers = false
-lvim.builtin.which_key.setup.window.winblend = 20
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 lvim.builtin.which_key.mappings["p"] = { ":Telescope find_files<cr>", "Find Files" }
 lvim.builtin.which_key.mappings["f"] = { ":Telescope live_grep theme=ivy<cr>", "Live Grep" }
@@ -338,7 +337,7 @@ lvim.builtin.bufferline.options.offsets = {
 -- end
 
 -- -- set a formatter, this will override the language server formatting capabilities (if it exists)
--- lvim.lsp.diagnostics.virtual_text = false
+lvim.lsp.diagnostics.virtual_text = false
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
   { command = "yapf", filetypes = { "python" } },
