@@ -373,7 +373,7 @@ formatters.setup {
 
 -- Additional Plugins
 lvim.plugins = {
-  { "folke/tokyonight.nvim" },
+  { "folke/tokyonight.nvim", commit = 'c78e698' },
   { "tpope/vim-surround" },
   -- { "karb94/neoscroll.nvim", require('neoscroll').setup() },
   { "nvim-treesitter/nvim-treesitter-textobjects" },
@@ -488,7 +488,35 @@ require("tokyonight").setup({
     style = "night",
     transparent = true,
     styles = {
-       sidebars = "transparent",
-       floats = "transparent",
-    }
+      comments = { italic = true },
+      keywords = { italic = true },
+      functions = {},
+      variables = {},
+      sidebars = "transparent",
+      floats = "transparent",
+    },
+    sidebars = {
+      "qf",
+      "vista_kind",
+      "terminal",
+      "packer",
+      "spectre_panel",
+      "NeogitStatus",
+      "help",
+    },
+    day_brightness = 0.3,
+    hide_inactive_statusline = false,
+    dim_inactive = false,
+    lualine_bold = false,
+    on_highlights = function(hl, c)
+      hl.IndentBlanklineContextChar = {
+        fg = c.dark5,
+      }
+      hl.TSConstructor = {
+        fg = c.blue1,
+      }
+      hl.TSTagDelimiter = {
+        fg = c.dark5,
+      }
+    end,
 })
