@@ -337,7 +337,7 @@ lvim.builtin.bufferline.options.offsets = {
 -- end
 
 -- -- set a formatter, this will override the language server formatting capabilities (if it exists)
-lvim.lsp.diagnostics.virtual_text = false
+lvim.lsp.diagnostics.virtual_text = true
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
   { command = "yapf", filetypes = { "python" } },
