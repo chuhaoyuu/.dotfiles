@@ -85,6 +85,8 @@ keymap("n", "<C-k>", "<cmd>cprev<CR>zz", keymap_opts)
 keymap("n", "<C-d>", "<C-d>zz", keymap_opts)
 keymap("n", "<C-u>", "<C-u>zz", keymap_opts)
 
+-- yaml fold
+keymap("n", "<backspace>", "<cmd>foldclose<CR>", keymap_opts)
 
 keymap("n", "<C-e>", ":Rex<CR>", keymap_opts)
 -- :E :Ex
@@ -459,6 +461,7 @@ lvim.plugins = {
     -- event = "BufRead",
   },
   { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' },
+  { 'pedrohdz/vim-yaml-folds' },
   { 'windwp/nvim-ts-autotag',
     config = function()
       require("nvim-ts-autotag").setup()
