@@ -54,11 +54,12 @@ zi snippet OMZP::tmux
 
 mkdir -p $ZSH_CACHE_DIR/completions
 zi snippet OMZP::kubectl
+source <(kubectl completion zsh)
 
 # history
 export HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=999999999
+SAVEHIST=999999999
 setopt share_history
 
 # key binding
@@ -89,3 +90,5 @@ alias la='lsd -a'
 alias lla='lsd -la'
 alias lt='lsd --tree'
 alias vi='lvim'
+
+export XDG_CONFIG_HOME=~/.config
