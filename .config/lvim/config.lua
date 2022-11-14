@@ -160,6 +160,7 @@ lvim.builtin.treesitter.ensure_installed = {
   "yaml",
 }
 
+lvim.builtin.autopairs.active = false
 lvim.builtin.treesitter.autotag.enable = true
 lvim.builtin.treesitter.textobjects.select.enable = true
 lvim.builtin.treesitter.textobjects.select.lookahead = true
