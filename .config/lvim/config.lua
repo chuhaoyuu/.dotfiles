@@ -10,14 +10,14 @@ an executable
 
 -- general
 vim.opt.showtabline = 0
-vim.opt.guicursor = ""
+-- vim.opt.guicursor = ""
 vim.opt.updatetime = 100
 vim.opt.clipboard = ""
 vim.opt.cmdheight = 1
 vim.opt.mouse = ""
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.cursorline = true
+vim.opt.cursorline = false
 vim.cmd [[
         augroup ColorcolumnOnlyInInsertMode
           autocmd!
