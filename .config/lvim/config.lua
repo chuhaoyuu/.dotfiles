@@ -10,14 +10,14 @@ an executable
 
 -- general
 vim.opt.showtabline = 0
--- vim.opt.guicursor = ""
-vim.opt.updatetime = 100
+vim.opt.guicursor = ""
+vim.opt.updatetime = 50
 vim.opt.clipboard = ""
 vim.opt.cmdheight = 1
 vim.opt.mouse = ""
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.cursorline = false
+vim.opt.cursorline = true
 vim.cmd [[
         augroup ColorcolumnOnlyInInsertMode
           autocmd!
@@ -87,8 +87,6 @@ keymap("n", "<C-u>", "<C-u>zz", keymap_opts)
 
 -- yaml fold
 keymap("n", "<backspace>", "<cmd>foldclose<CR>", keymap_opts)
-keymap("n", "<C-]>", "zR", keymap_opts)
-keymap("n", "<C-[>", "zM", keymap_opts)
 vim.cmd [[ set foldlevel=99 ]]
 
 keymap("n", "<C-e>", ":Rex<CR>", keymap_opts)
