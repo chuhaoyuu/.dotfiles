@@ -18,6 +18,9 @@ vim.opt.mouse = ""
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
+vim.opt.wrap = false
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
 vim.cmd [[
         augroup ColorcolumnOnlyInInsertMode
           autocmd!
@@ -49,6 +52,10 @@ lvim.keys.normal_mode["L"] = "L"
 local keymap_opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 keymap("n", "g0", "`[v`]", keymap_opts)
+
+keymap("n", "J", "mzJ`z", keymap_opts)
+keymap("n", "n", "nzzzv", keymap_opts)
+keymap("n", "N", "Nzzzv", keymap_opts)
 
 keymap("n", "<C-p>", "\"0P", keymap_opts)
 keymap("x", "<C-p>", "\"_dP", keymap_opts)
@@ -90,6 +97,7 @@ keymap("n", "<backspace>", "<cmd>foldclose<CR>", keymap_opts)
 vim.cmd [[ set foldlevel=99 ]]
 
 keymap("n", "<C-e>", ":Rex<CR>", keymap_opts)
+keymap("n", "<space>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], keymap_opts)
 -- :E :Ex
 lvim.builtin.nvimtree.setup.disable_netrw = false
 
