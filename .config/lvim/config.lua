@@ -28,6 +28,13 @@ vim.cmd [[
           autocmd InsertLeave * setlocal colorcolumn=0
         augroup END
 ]]
+vim.cmd [[
+        augroup ansible_filetype
+          autocmd!
+          autocmd BufNewFile,BufRead */playbooks/*.yml setfiletype yaml.ansible
+          autocmd BufNewFile,BufRead */roles/*.yml setfiletype yaml.ansible
+        augroup END
+]]
 
 lvim.log.level = "warn"
 lvim.format_on_save = false
@@ -329,8 +336,9 @@ lvim.builtin.bufferline.options.offsets = {
 -- ---configure a server manually. !!Requires `:LvimCacheReset` to take effect!!
 -- ---see the full default list `:lua print(vim.inspect(lvim.lsp.automatic_configuration.skipped_servers))`
 -- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
--- local opts = {} -- check the lspconfig documentation for a list of all possible options
+local opts = {} -- check the lspconfig documentation for a list of all possible options
 -- require("lvim.lsp.manager").setup("pyright", opts)
+require("lvim.lsp.manager").setup("ansiblels", opts)
 
 -- ---remove a server from the skipped list, e.g. eslint, or emmet_ls. !!Requires `:LvimCacheReset` to take effect!!
 -- ---`:LvimInfo` lists which server(s) are skipped for the current filetype
@@ -353,6 +361,7 @@ lvim.lsp.diagnostics.virtual_text = true
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
   { command = "yapf", filetypes = { "python" } },
+  { command = "yamlfmt", filetypes = { "yaml", "yaml.ansible" } },
   --   { command = "isort", filetypes = { "python" } },
   --   {
   --     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
@@ -366,9 +375,10 @@ formatters.setup {
 }
 
 -- -- set additional linters
--- local linters = require "lvim.lsp.null-ls.linters"
--- linters.setup {
---   { command = "flake8", filetypes = { "python" } },
+local linters = require "lvim.lsp.null-ls.linters"
+linters.setup {
+  { command = "flake8", filetypes = { "python" } },
+  { command = "yamllint", filetypes = { "yaml", "yaml.ansible" } },
 --   {
 --     -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
 --     command = "shellcheck",
@@ -376,19 +386,19 @@ formatters.setup {
 --     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
 --     extra_args = { "--severity", "warning" },
 --   },
---   {
---     command = "codespell",
+  {
+    command = "codespell",
 --     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
 --     filetypes = { "javascript", "python" },
---   },
--- }
+  },
+}
 
 -- Additional Plugins
 lvim.plugins = {
   { "folke/tokyonight.nvim", commit = 'c78e698' },
   { "tpope/vim-surround" },
   -- { "karb94/neoscroll.nvim", require('neoscroll').setup() },
-  { "nvim-treesitter/nvim-treesitter-textobjects" },
+  { "nvim-treesitter/nvim-treesitter-textobjects", commit = 'b062311' },
   {
     "lukas-reineke/indent-blankline.nvim",
     setup = function()

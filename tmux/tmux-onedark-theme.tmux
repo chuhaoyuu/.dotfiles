@@ -1,10 +1,10 @@
 #!/bin/bash
-onedark_black=default
-onedark_blue="#7ba2f3"
+onedark_black="#1a1b26"
+onedark_blue="#7aa2f7"
 onedark_yellow="#e5c07b"
 onedark_red="#e06c75"
 onedark_white="#aab2bf"
-onedark_green="#41b59b"
+onedark_green="#98c379"
 onedark_lightgreen="#38ff9c"
 onedark_visual_grey="#202330"
 onedark_comment_grey="#5c6370"
@@ -78,14 +78,13 @@ set "@prefix_highlight_bg" "$onedark_green"
 set "@prefix_highlight_copy_mode_attr" "fg=$onedark_black,bg=$onedark_green"
 set "@prefix_highlight_output_prefix" "  "
 
-tmux set-option -g status-style bg=default
-
 status_widgets=$(get "@onedark_widgets")
 time_format=$(get "@onedark_time_format" "%R")
 date_format=$(get "@onedark_date_format" "%d/%m/%Y")
 
-set "status-right" "#[fg=$onedark_black,bg=$onedark_black] #(/bin/bash $HOME/.tmux/kube-tmux/kube.tmux 250 blue blue) #[fg=$onedark_lightgreen,bg=$onedark_black,bold]${time_format} #[fg=$onedark_yellow, bg=$onedark_black]#[fg=$onedark_red,bg=$onedark_yellow]"
-set "status-left" "#[fg=$onedark_blue,bg=$onedark_black,bold] #S "
+set "status-right" "#[fg=$onedark_visual_grey,bg=$onedark_black]#[fg=$onedark_visual_grey,bg=$onedark_visual_grey] #(/bin/bash $HOME/.tmux/kube-tmux/kube.tmux 250 blue blue)  #[fg=$onedark_lightgreen,bg=$onedark_visual_grey,bold]${time_format} #[fg=$onedark_yellow, bg=$onedark_visual_grey]#[fg=$onedark_red,bg=$onedark_yellow]"
+# set "status-right" "#[fg=$onedark_black,bg=$onedark_black]#[fg=$onedark_visual_grey,bg=$onedark_black,nobold,nounderscore,noitalics]#[fg=$onedark_green,bg=$onedark_visual_grey,bold] ${time_format} #[fg=$onedark_yellow, bg=$onedark_visual_grey]#[fg=$onedark_red,bg=$onedark_yellow]"
+set "status-left" "#[fg=$onedark_blue,bg=$onedark_visual_grey,bold] #S #{prefix_highlight}#[fg=$onedark_visual_grey,bg=$onedark_black,nobold,nounderscore,noitalics]"
 
-set "window-status-format" "#[fg=$onedark_visual_grey,bg=$onedark_black] #I) #W "
-set "window-status-current-format" "#[fg=$onedark_blue,bg=$onedark_black,bold] #I) #{?window_zoomed_flag,#[fg=red](,}#W#{?window_zoomed_flag,#[fg=red]),}"
+set "window-status-format" "#[fg=$onedark_black,bg=$onedark_black,nobold,nounderscore,noitalics]#[fg=$onedark_comment_grey,bg=$onedark_black] #I  #W #[fg=$onedark_black,bg=$onedark_black,nobold,nounderscore,noitalics]"
+set "window-status-current-format" "#[fg=$onedark_black,bg=$onedark_visual_grey,bold,nounderscore,noitalics]#[fg=$onedark_blue,bg=$onedark_visual_grey,bold] #I  #{?window_zoomed_flag,#[fg=red](,}#W#{?window_zoomed_flag,#[fg=red]),} #[fg=$onedark_visual_grey,bg=$onedark_black,bold,nounderscore,noitalics]"
