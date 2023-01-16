@@ -24,7 +24,7 @@ vim.opt.incsearch = true
 vim.cmd [[
         augroup ColorcolumnOnlyInInsertMode
           autocmd!
-          autocmd InsertEnter * if &filetype == "python" | setlocal colorcolumn=119 | endif
+          autocmd InsertEnter * if &filetype == "python" || &filetype == "yaml.ansible" || &filetype == "yaml" | setlocal colorcolumn=119 | endif
           autocmd InsertLeave * setlocal colorcolumn=0
         augroup END
 ]]
