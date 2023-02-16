@@ -267,6 +267,7 @@ lvim.builtin.cmp.formatting.kind_icons = {
 
 -- lualine
 lvim.builtin.lualine.sections.lualine_a = { "" }
+lvim.builtin.illuminate.active = false
 
 
 -- bufferline
