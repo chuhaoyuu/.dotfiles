@@ -22,18 +22,18 @@ vim.opt.wrap = false
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 vim.cmd [[
-        augroup ColorcolumnOnlyInInsertMode
-          autocmd!
-          autocmd InsertEnter * if &filetype == "python" || &filetype == "yaml.ansible" || &filetype == "yaml" | setlocal colorcolumn=119 | endif
-          autocmd InsertLeave * setlocal colorcolumn=0
-        augroup END
+  augroup ColorcolumnOnlyInInsertMode
+    autocmd!
+    autocmd InsertEnter * if &filetype == "python" || &filetype == "yaml.ansible" || &filetype == "yaml" | setlocal colorcolumn=119 | endif
+    autocmd InsertLeave * setlocal colorcolumn=0
+  augroup END
 ]]
 vim.cmd [[
-        augroup ansible_filetype
-          autocmd!
-          autocmd BufNewFile,BufRead */playbooks/*.yml setfiletype yaml.ansible
-          autocmd BufNewFile,BufRead */roles/*.yml setfiletype yaml.ansible
-        augroup END
+  augroup ansible_filetype
+    autocmd!
+    autocmd BufNewFile,BufRead */playbooks/*.yml setfiletype yaml.ansible
+    autocmd BufNewFile,BufRead */roles/*.yml setfiletype yaml.ansible
+  augroup END
 ]]
 
 lvim.log.level = "warn"
@@ -152,7 +152,6 @@ lvim.builtin.which_key.mappings["x"] = { ":bdelete<cr>", "Close buffer" }
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
-lvim.builtin.notify.active = false
 lvim.builtin.terminal.active = false
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
@@ -266,9 +265,12 @@ lvim.builtin.cmp.formatting.kind_icons = {
 
 }
 
+-- lualine
+lvim.builtin.lualine.sections.lualine_a = { "" }
+
 
 -- bufferline
-lvim.builtin.bufferline.active = false
+lvim.builtin.bufferline.active = true
 lvim.builtin.bufferline.options.buffer_close_icon = ""
 lvim.builtin.bufferline.options.close_icon = ""
 lvim.builtin.bufferline.options.always_show_bufferline = false
@@ -379,107 +381,25 @@ local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
   { command = "flake8", filetypes = { "python" } },
   { command = "yamllint", filetypes = { "yaml", "yaml.ansible" } },
---   {
---     -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
---     command = "shellcheck",
---     ---@usage arguments to pass to the formatter
---     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
---     extra_args = { "--severity", "warning" },
---   },
+  --   {
+  --     -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
+  --     command = "shellcheck",
+  --     ---@usage arguments to pass to the formatter
+  --     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
+  --     extra_args = { "--severity", "warning" },
+  --   },
   {
     command = "codespell",
---     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
---     filetypes = { "javascript", "python" },
+    --     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
+    --     filetypes = { "javascript", "python" },
   },
 }
 
 -- Additional Plugins
 lvim.plugins = {
-  { "folke/tokyonight.nvim", commit = 'c78e698' },
   { "tpope/vim-surround" },
   -- { "karb94/neoscroll.nvim", require('neoscroll').setup() },
   { "nvim-treesitter/nvim-treesitter-textobjects", commit = 'b062311' },
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    setup = function()
-      vim.g.indent_blankline_char = "▏"
-    end,
-    config = function()
-      require("indent_blankline").setup {
-        enabled = true,
-        bufname_exclude = { "README.md" },
-        buftype_exclude = { "terminal", "nofile" },
-        filetype_exclude = {
-          "alpha",
-          "log",
-          "gitcommit",
-          "dapui_scopes",
-          "dapui_stacks",
-          "dapui_watches",
-          "dapui_breakpoints",
-          "dapui_hover",
-          "LuaTree",
-          "dbui",
-          "UltestSummary",
-          "UltestOutput",
-          "vimwiki",
-          "markdown",
-          "json",
-          "txt",
-          "vista",
-          "NvimTree",
-          "git",
-          "TelescopePrompt",
-          "undotree",
-          "flutterToolsOutline",
-          "org",
-          "orgagenda",
-          "help",
-          "startify",
-          "dashboard",
-          "packer",
-          "neogitstatus",
-          "NvimTree",
-          "Outline",
-          "Trouble",
-          "lspinfo",
-          "", -- for all buffers without a file type
-        },
-        show_trailing_blankline_indent = false,
-        show_first_indent_level = false,
-        space_char_blankline = " ",
-        use_treesitter = true,
-        show_foldtext = false,
-        show_current_context = true,
-        show_current_context_start = false,
-        context_patterns = {
-          "class",
-          "return",
-          "function",
-          "method",
-          "^if",
-          "^do",
-          "^switch",
-          "^while",
-          "jsx_element",
-          "^for",
-          "^object",
-          "^table",
-          "block",
-          "arguments",
-          "if_statement",
-          "else_clause",
-          "jsx_element",
-          "jsx_self_closing_element",
-          "try_statement",
-          "catch_clause",
-          "import_statement",
-          "operation_type",
-        },
-      }
-    end,
-    -- event = "BufRead",
-  },
   { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' },
   { 'pedrohdz/vim-yaml-folds' },
   { 'windwp/nvim-ts-autotag',
@@ -508,38 +428,38 @@ lvim.plugins = {
 -- })
 
 require("tokyonight").setup({
-    style = "night",
-    transparent = true,
-    styles = {
-      comments = { italic = true },
-      keywords = { italic = true },
-      functions = {},
-      variables = {},
-      sidebars = "transparent",
-      floats = "transparent",
-    },
-    sidebars = {
-      "qf",
-      "vista_kind",
-      "terminal",
-      "packer",
-      "spectre_panel",
-      "NeogitStatus",
-      "help",
-    },
-    day_brightness = 0.3,
-    hide_inactive_statusline = false,
-    dim_inactive = false,
-    lualine_bold = false,
-    on_highlights = function(hl, c)
-      hl.IndentBlanklineContextChar = {
-        fg = c.dark5,
-      }
-      hl.TSConstructor = {
-        fg = c.blue1,
-      }
-      hl.TSTagDelimiter = {
-        fg = c.dark5,
-      }
-    end,
+  style = "night",
+  transparent = true,
+  styles = {
+    comments = { italic = true },
+    keywords = { italic = true },
+    functions = {},
+    variables = {},
+    sidebars = "transparent",
+    floats = "transparent",
+  },
+  sidebars = {
+    "qf",
+    "vista_kind",
+    "terminal",
+    "packer",
+    "spectre_panel",
+    "NeogitStatus",
+    "help",
+  },
+  day_brightness = 0.3,
+  hide_inactive_statusline = false,
+  dim_inactive = false,
+  lualine_bold = false,
+  on_highlights = function(hl, c)
+    hl.IndentBlanklineContextChar = {
+      fg = c.dark5,
+    }
+    hl.TSConstructor = {
+      fg = c.blue1,
+    }
+    hl.TSTagDelimiter = {
+      fg = c.dark5,
+    }
+  end,
 })
