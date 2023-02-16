@@ -73,6 +73,8 @@ keymap("n", "<space>y", "\"+y", keymap_opts)
 keymap("v", "<space>y", "\"+y", keymap_opts)
 keymap("n", "<space>Y", "\"+Y", keymap_opts)
 
+keymap("n", "<space>u", "<cmd>UndotreeToggle<CR>", keymap_opts)
+
 -- Navigate buffers
 keymap("n", "<space>]", ":bnext<cr>", keymap_opts)
 keymap("n", "<space>[", ":bprevious<cr>", keymap_opts)
@@ -103,10 +105,7 @@ keymap("n", "<C-u>", "<C-u>zz", keymap_opts)
 keymap("n", "<backspace>", "<cmd>foldclose<CR>", keymap_opts)
 vim.cmd [[ set foldlevel=99 ]]
 
-keymap("n", "<C-e>", ":Rex<CR>", keymap_opts)
 keymap("n", "<space>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], keymap_opts)
--- :E :Ex
-lvim.builtin.nvimtree.setup.disable_netrw = false
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
@@ -398,9 +397,11 @@ linters.setup {
 
 -- Additional Plugins
 lvim.plugins = {
-  { "tpope/vim-surround" },
+  { 'theprimeagen/harpoon' },
+  { 'mbbill/undotree' },
+  { 'tpope/vim-surround' },
   -- { "karb94/neoscroll.nvim", require('neoscroll').setup() },
-  { "nvim-treesitter/nvim-treesitter-textobjects", commit = 'b062311' },
+  { 'nvim-treesitter/nvim-treesitter-textobjects', commit = 'b062311' },
   { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' },
   { 'pedrohdz/vim-yaml-folds' },
   { 'windwp/nvim-ts-autotag',
@@ -464,3 +465,14 @@ require("tokyonight").setup({
     }
   end,
 })
+
+local mark = require("harpoon.mark")
+local ui = require("harpoon.ui")
+
+vim.keymap.set("n", "<space>a", mark.add_file)
+vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
+
+vim.keymap.set("n", "<C-h>", function() ui.nav_file(1) end)
+vim.keymap.set("n", "<C-t>", function() ui.nav_file(2) end)
+vim.keymap.set("n", "<C-n>", function() ui.nav_file(3) end)
+vim.keymap.set("n", "<C-s>", function() ui.nav_file(4) end)
