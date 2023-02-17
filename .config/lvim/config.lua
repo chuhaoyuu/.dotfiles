@@ -84,7 +84,6 @@ keymap("n", "<C-Up>", ":resize +2<CR>", keymap_opts)
 keymap("n", "<C-Down>", ":resize -2<CR>", keymap_opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", keymap_opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", keymap_opts)
-
 -- Move text up and down
 -- keymap("v", "<C-j>", ":m .+1<CR>==", keymap_opts)
 -- keymap("v", "<C-k>", ":m .-2<CR>==", keymap_opts)
@@ -268,9 +267,11 @@ lvim.builtin.cmp.formatting.kind_icons = {
 lvim.builtin.lualine.sections.lualine_a = { "" }
 lvim.builtin.illuminate.active = false
 
+-- breadcrumbs
+lvim.builtin.breadcrumbs.active = false
 
 -- bufferline
-lvim.builtin.bufferline.active = true
+lvim.builtin.bufferline.active = false
 lvim.builtin.bufferline.options.buffer_close_icon = ""
 lvim.builtin.bufferline.options.close_icon = ""
 lvim.builtin.bufferline.options.always_show_bufferline = false
@@ -471,8 +472,3 @@ local ui = require("harpoon.ui")
 
 vim.keymap.set("n", "<space>a", mark.add_file)
 vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
-
-vim.keymap.set("n", "<C-h>", function() ui.nav_file(1) end)
-vim.keymap.set("n", "<C-t>", function() ui.nav_file(2) end)
-vim.keymap.set("n", "<C-n>", function() ui.nav_file(3) end)
-vim.keymap.set("n", "<C-s>", function() ui.nav_file(4) end)
