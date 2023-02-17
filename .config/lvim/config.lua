@@ -17,7 +17,7 @@ vim.opt.cmdheight = 1
 vim.opt.mouse = ""
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.cursorline = true
+vim.opt.cursorline = false
 vim.opt.wrap = false
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
@@ -264,7 +264,21 @@ lvim.builtin.cmp.formatting.kind_icons = {
 }
 
 -- lualine
+local components = require("lvim.core.lualine.components")
 lvim.builtin.lualine.sections.lualine_a = { "" }
+lvim.builtin.lualine.sections.lualine_b = {
+  components.filename,
+  components.branch,
+}
+lvim.builtin.lualine.sections.lualine_x = {
+  components.diagnostics,
+  components.lsp,
+  components.filetype
+}
+lvim.builtin.lualine.sections.lualine_y = {
+  components.treesitter,
+  components.scrollbar
+}
 lvim.builtin.illuminate.active = false
 
 -- breadcrumbs
