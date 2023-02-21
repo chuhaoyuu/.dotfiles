@@ -35,6 +35,12 @@ vim.cmd [[
     autocmd BufNewFile,BufRead */roles/*.yml setfiletype yaml.ansible
   augroup END
 ]]
+vim.api.nvim_exec([[
+  augroup MyColors
+    autocmd!
+    autocmd ColorScheme * highlight LineNr guifg=grey | highlight CursorLineNR guifg=#FFba00
+  augroup END
+]], false)
 
 lvim.log.level = "warn"
 lvim.format_on_save = false
