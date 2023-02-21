@@ -33,12 +33,13 @@ vim.cmd [[
     autocmd!
     autocmd BufNewFile,BufRead */playbooks/*.yml setfiletype yaml.ansible
     autocmd BufNewFile,BufRead */roles/*.yml setfiletype yaml.ansible
+    autocmd BufNewFile,BufRead */molecule/*.yml setfiletype yaml.ansible
   augroup END
 ]]
 vim.api.nvim_exec([[
   augroup MyColors
     autocmd!
-    autocmd ColorScheme * highlight LineNr guifg=grey | highlight CursorLineNR guifg=#FFba00
+    autocmd ColorScheme * highlight LineNr guifg=#737aa2 | highlight CursorLineNR guifg=#2ac3de
   augroup END
 ]], false)
 
@@ -279,12 +280,11 @@ lvim.builtin.lualine.sections.lualine_b = {
 lvim.builtin.lualine.sections.lualine_x = {
   components.diagnostics,
   components.lsp,
+  components.treesitter,
   components.filetype
 }
-lvim.builtin.lualine.sections.lualine_y = {
-  components.treesitter,
-  components.scrollbar
-}
+lvim.builtin.lualine.sections.lualine_y = { "" }
+
 lvim.builtin.illuminate.active = false
 
 -- breadcrumbs
