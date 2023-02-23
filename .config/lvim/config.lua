@@ -137,10 +137,11 @@ lvim.builtin.telescope.defaults.mappings = {
 -- Use which-key to add extra bindings with the leader-key prefix
 lvim.builtin.which_key.setup.plugins.marks = false
 lvim.builtin.which_key.setup.plugins.registers = false
-lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
+lvim.builtin.project.active = false
+-- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 lvim.builtin.which_key.mappings["p"] = { ":Telescope find_files<cr>", "Find Files" }
 lvim.builtin.which_key.mappings["f"] = { ":Telescope live_grep theme=ivy<cr>", "Live Grep" }
-lvim.builtin.which_key.mappings["x"] = { ":bdelete<cr>", "Close buffer" }
+-- lvim.builtin.which_key.mappings["x"] = { ":bdelete<cr>", "Close buffer" }
 
 
 -- lvim.builtin.which_key.mappings["t"] = {
