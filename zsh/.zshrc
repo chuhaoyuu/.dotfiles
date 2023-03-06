@@ -22,6 +22,10 @@ source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
+# OMZ plugins
+zi snippet OMZP::git
+zi snippet OMZP::tmux
+
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
 zinit light-mode for \
@@ -34,6 +38,7 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 zinit load agkozak/zsh-z
+zinit load wfxr/forgit
 zinit ice depth=1
 zinit light jeffreytse/zsh-vi-mode
 
@@ -47,10 +52,6 @@ zinit ice depth"1" # git clone depth
 zinit light romkatv/powerlevel10k
 
 ### End of Zinit's installer chunk
-
-# OMZ plugins
-zi snippet OMZP::git
-zi snippet OMZP::tmux
 
 mkdir -p $ZSH_CACHE_DIR/completions
 zi snippet OMZP::kubectl
