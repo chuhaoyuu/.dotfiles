@@ -17,7 +17,7 @@ vim.opt.cmdheight = 1
 vim.opt.mouse = ""
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.cursorline = false
+vim.opt.cursorline = true
 vim.opt.wrap = false
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
@@ -39,7 +39,7 @@ vim.cmd [[
 vim.api.nvim_exec([[
   augroup MyColors
     autocmd!
-    autocmd ColorScheme * highlight LineNr guifg=#737aa2 | highlight CursorLineNR guifg=#2ac3de
+    autocmd ColorScheme * highlight LineNr guifg=#737aa2 | highlight CursorLineNR guifg=#38ff9c | highlight CursorLine guibg=None
   augroup END
 ]], false)
 
@@ -176,6 +176,7 @@ lvim.builtin.treesitter.ensure_installed = {
   "rust",
   "java",
   "yaml",
+  "dockerfile"
 }
 
 lvim.builtin.autopairs.active = false
@@ -456,7 +457,7 @@ require("tokyonight").setup({
   transparent = true,
   styles = {
     comments = { italic = true },
-    keywords = { italic = true },
+    keywords = { italic = false },
     functions = {},
     variables = {},
     sidebars = "transparent",

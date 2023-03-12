@@ -93,6 +93,3 @@ alias lt='lsd --tree'
 alias vi='lvim'
 
 export XDG_CONFIG_HOME=~/.config
-
-# add .venv in current project
-export PIPENV_VENV_IN_PROJECT=1
