@@ -179,7 +179,7 @@ lvim.builtin.treesitter.ensure_installed = {
   "dockerfile"
 }
 
-lvim.builtin.autopairs.active = false
+lvim.builtin.autopairs.active = true
 lvim.builtin.treesitter.autotag.enable = true
 lvim.builtin.treesitter.textobjects.select.enable = true
 lvim.builtin.treesitter.textobjects.select.lookahead = true
@@ -424,6 +424,7 @@ lvim.plugins = {
   { 'mbbill/undotree' },
   { 'tpope/vim-surround' },
   -- { "karb94/neoscroll.nvim", require('neoscroll').setup() },
+  { 'folke/tokyonight.nvim', commit = '3ebc29d' },
   { 'nvim-treesitter/nvim-treesitter-textobjects', commit = 'b062311' },
   { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' },
   { 'pedrohdz/vim-yaml-folds' },
