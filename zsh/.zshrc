@@ -78,6 +78,7 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # kubectl editor
 export KUBE_EDITOR="/usr/local/bin/lvim"
+export ZVM_VI_EDITOR="/usr/local/bin/lvim"
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"

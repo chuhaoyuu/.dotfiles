@@ -223,6 +223,7 @@
   typeset -g POWERLEVEL9K_PROMPT_CHAR_LEFT_PROMPT_FIRST_SEGMENT_START_SYMBOL=
   typeset -g ZVM_CURSOR_STYLE_ENABLED=false
   typeset -g ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+  typeset -g ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_NEX
   zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
 
   ##################################[ dir: current directory ]##################################

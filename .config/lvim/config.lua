@@ -101,8 +101,8 @@ keymap("x", "J", ":move '>+1<CR>gv=gv", keymap_opts)
 keymap("x", "K", ":move '<-2<CR>gv=gv", keymap_opts)
 
 -- grep move
-keymap("n", "<C-j>", "<cmd>cnext<CR>zz", keymap_opts)
-keymap("n", "<C-k>", "<cmd>cprev<CR>zz", keymap_opts)
+keymap("n", "<C-n>", "<cmd>cnext<CR>zz", keymap_opts)
+keymap("n", "<C-p>", "<cmd>cprev<CR>zz", keymap_opts)
 
 keymap("n", "<C-d>", "<C-d>zz", keymap_opts)
 keymap("n", "<C-u>", "<C-u>zz", keymap_opts)
@@ -137,7 +137,6 @@ lvim.builtin.telescope.defaults.mappings = {
 -- Use which-key to add extra bindings with the leader-key prefix
 lvim.builtin.which_key.setup.plugins.marks = false
 lvim.builtin.which_key.setup.plugins.registers = false
-lvim.builtin.project.active = false
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 lvim.builtin.which_key.mappings["p"] = { ":Telescope find_files<cr>", "Find Files" }
 lvim.builtin.which_key.mappings["f"] = { ":Telescope live_grep theme=ivy<cr>", "Live Grep" }
@@ -156,9 +155,14 @@ lvim.builtin.which_key.mappings["f"] = { ":Telescope live_grep theme=ivy<cr>", "
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
-lvim.builtin.alpha.active = true
+lvim.builtin.terminal.active = true
+lvim.builtin.autopairs.active = true
+lvim.builtin.bufferline.active = true
+lvim.builtin.alpha.active = false
 lvim.builtin.alpha.mode = "dashboard"
-lvim.builtin.terminal.active = false
+lvim.builtin.project.active = false
+lvim.builtin.illuminate.active = false
+lvim.builtin.breadcrumbs.active = false
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 
@@ -179,7 +183,6 @@ lvim.builtin.treesitter.ensure_installed = {
   "dockerfile"
 }
 
-lvim.builtin.autopairs.active = true
 lvim.builtin.treesitter.autotag.enable = true
 lvim.builtin.treesitter.textobjects.select.enable = true
 lvim.builtin.treesitter.textobjects.select.lookahead = true
@@ -287,13 +290,8 @@ lvim.builtin.lualine.sections.lualine_x = {
 }
 lvim.builtin.lualine.sections.lualine_y = { "" }
 
-lvim.builtin.illuminate.active = false
-
--- breadcrumbs
-lvim.builtin.breadcrumbs.active = false
 
 -- bufferline
-lvim.builtin.bufferline.active = false
 lvim.builtin.bufferline.options.buffer_close_icon = ""
 lvim.builtin.bufferline.options.close_icon = ""
 lvim.builtin.bufferline.options.always_show_bufferline = false
