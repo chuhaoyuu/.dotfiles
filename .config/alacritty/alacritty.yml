@@ -1,0 +1,72 @@
+---
+live_config_reload: true
+env:
+  TERM: xterm-256color
+
+window:
+  opacity: 0.85
+  padding:
+    x: 10
+    y: 10
+  dynamic_padding: false
+  decorations: buttonless
+
+scrolling:
+  history: 99999
+  multiplier: 3
+
+font:
+  size: 14.5
+  offset:
+    x: 1
+    y: 1
+  normal:
+    family: 'SFMono Nerd Font'
+    style: Regular
+  bold:
+    family: 'SFMono Nerd Font'
+    style: bold
+  italic:
+    family: 'SFMono Nerd Font'
+    style: italic
+  bold_italic:
+    family: 'SFMono Nerd Font'
+    style: bold_italic
+draw_bold_text_with_bright_colors: true
+
+colors:
+  # TokyoNight
+  primary:
+    background: '#010b17'
+    foreground: '#bbc2e0'
+
+  cursor:
+    text: '#010b17'
+    cursor: '#38ff9c'
+
+  # Normal colors
+  normal:
+    black: '#414868'
+    red: '#f7768e'
+    green: '#41b59b'
+    yellow: '#e0af68'
+    blue: '#7ba2f3'
+    magenta: '#bb9af7'
+    cyan: '#2ccde9'
+    white: '#c0caf5'
+
+  # Bright colors
+  bright:
+    black: '#414868'
+    red: '#f7768e'
+    green: '#41b59b'
+    yellow: '#e0af68'
+    blue: '#7ba2f3'
+    magenta: '#bb9af7'
+    cyan: '#2ac4de'
+    white: '#c0caf5'
+
+key_bindings:
+  - { key: F, mods: Control, chars: "\x1BF" }
+  - { key: B, mods: Control, chars: "\x1BB" }
+  - { key: Z, mods: Control, chars: "\x1f" }
