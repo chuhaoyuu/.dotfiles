@@ -65,8 +65,3 @@ colors:
     magenta: '#bb9af7'
     cyan: '#2ac4de'
     white: '#c0caf5'
-
-key_bindings:
-  - { key: F, mods: Control, chars: "\x1BF" }
-  - { key: B, mods: Control, chars: "\x1BB" }
-  - { key: Z, mods: Control, chars: "\x1f" }

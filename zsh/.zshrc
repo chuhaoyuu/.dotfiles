@@ -40,7 +40,7 @@ zinit light zsh-users/zsh-completions
 zinit load agkozak/zsh-z
 zinit load wfxr/forgit
 zinit ice depth=1
-# zinit light jeffreytse/zsh-vi-mode
+zinit light jeffreytse/zsh-vi-mode
 
 autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
