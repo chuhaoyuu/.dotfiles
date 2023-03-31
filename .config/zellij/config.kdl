@@ -265,7 +265,7 @@ pane_frames false
 themes {
     darknight {
         bg "#010b17"
-        fg "#bbc2e0"
+        fg "#202330"
         black "#010b17"
         red "#f7768e"
         green "#41b59b"
