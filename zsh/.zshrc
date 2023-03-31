@@ -92,5 +92,10 @@ alias la='lsd -a'
 alias lla='lsd -la'
 alias lt='lsd --tree'
 alias vi='lvim'
+alias zad='zellij a'
+alias zs='zellij -s'
+alias zl='zellij ls'
+alias zk='zellij k'
+alias zka='zellij ka'
 
 export XDG_CONFIG_HOME=~/.config

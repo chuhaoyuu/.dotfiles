@@ -43,7 +43,7 @@ vim.api.nvim_exec([[
   augroup END
 ]], false)
 
-lvim.log.level = "warn"
+lvim.log.level = "error"
 lvim.format_on_save = false
 lvim.relativenumber = true
 lvim.transparent_window = true
@@ -65,7 +65,7 @@ lvim.keys.normal_mode["L"] = "L"
 -- lvim.keys.normal_mode["<C-q>"] = ":q<cr>" -- or vim.keymap.set("n", "<C-q>", ":q<cr>" )
 local keymap_opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
-keymap("n", "g0", "`[v`]", keymap_opts)
+keymap("n", "go", "`[v`]", keymap_opts)
 
 keymap("n", "J", "mzJ`z", keymap_opts)
 keymap("n", "n", "nzzzv", keymap_opts)

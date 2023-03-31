@@ -30,3 +30,4 @@ yabai -m rule --add app="^Karabiner-Elements$" manage=off
 yabai -m rule --add app="^LINE$" manage=off
 yabai -m rule --add app="^Slack$" manage=off
 yabai -m rule --add app="^Spotify$" manage=off
+yabai -m rule --add app="^Notion$" manage=off
