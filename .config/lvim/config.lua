@@ -456,7 +456,7 @@ require("tokyonight").setup({
   transparent = true,
   styles = {
     comments = { italic = true },
-    keywords = { italic = false },
+    keywords = { italic = true },
     functions = {},
     variables = {},
     sidebars = "transparent",

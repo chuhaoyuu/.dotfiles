@@ -62,3 +62,4 @@ colors:
 
 key_bindings:
   - {key: Key6, mods: Control, chars: "\x1E"}
+  - {key: T, mods: Super, action: SpawnNewInstance}
