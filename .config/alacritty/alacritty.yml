@@ -4,9 +4,9 @@ env:
   TERM: xterm-256color
 
 window:
-  opacity: 0.9
+  opacity: 0.95
   padding:
-    x: 10
+    x: 5
     y: 10
   dynamic_padding: false
   decorations: buttonless
@@ -21,10 +21,10 @@ font:
     x: 1
     y: 1
   normal:
-    family: 'SFMono Nerd Font'
+    family: 'MesloLGS Nerd Font'
     style: Regular
   bold:
-    family: 'SFMono Nerd Font'
+    family: 'MesloLGS Nerd Font'
     style: bold
 draw_bold_text_with_bright_colors: true
 

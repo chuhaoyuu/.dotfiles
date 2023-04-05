@@ -117,6 +117,7 @@ keymap("n", "<space>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], 
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
 local _, actions = pcall(require, "telescope.actions")
 lvim.builtin.telescope.defaults.file_ignore_patterns = { "__pycache__", "%.lock", ".git/" }
+lvim.builtin.telescope.defaults.prompt_prefix = " "
 lvim.builtin.telescope.defaults.mappings = {
   -- for input mode
   i = {
