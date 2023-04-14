@@ -112,6 +112,7 @@ keymap("n", "<backspace>", "<cmd>foldclose<CR>", keymap_opts)
 vim.cmd [[ set foldlevel=99 ]]
 
 keymap("n", "<space>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], keymap_opts)
+keymap("n", "<space>e", ":Rex<CR>", keymap_opts)
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
@@ -164,8 +165,10 @@ lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.project.active = false
 lvim.builtin.illuminate.active = false
 lvim.builtin.breadcrumbs.active = false
+lvim.builtin.nvimtree.active = false
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
+lvim.builtin.nvimtree.setup.filters.custom = { "node_modules", "\\.cache", "__pycache__" }
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
@@ -384,7 +387,9 @@ require("lvim.lsp.manager").setup("ansiblels", opts)
 lvim.lsp.diagnostics.virtual_text = true
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
-  { command = "yapf", filetypes = { "python" } },
+  { command = "black", filetypes = { "python" }, extra_args = {"--line-length", "120", "--skip-string-normalization"} },
+  -- { command = "yapf", filetypes = { "python" } },
+  { command = "isort", filetypes = { "python" } },
   { command = "yamlfmt", filetypes = { "yaml", "yaml.ansible" } },
   --   { command = "isort", filetypes = { "python" } },
   --   {
@@ -425,7 +430,7 @@ lvim.plugins = {
   -- { "karb94/neoscroll.nvim", require('neoscroll').setup() },
   { 'folke/tokyonight.nvim', commit = '3ebc29d' },
   { 'nvim-treesitter/nvim-treesitter-textobjects', commit = 'b062311' },
-  { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' },
+  { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim', commit = 'ebcbe90' },
   { 'pedrohdz/vim-yaml-folds' },
   { 'windwp/nvim-ts-autotag',
     config = function()

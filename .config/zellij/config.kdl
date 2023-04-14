@@ -45,6 +45,7 @@ keybinds clear-defaults=true {
     }
 
     scroll clear-defaults=true {
+        bind "Ctrl a" { SwitchToMode "tmux"; }
         bind "q" "Esc" { SwitchToMode "Normal"; }
         bind "e" { EditScrollback; SwitchToMode "Normal"; }
         bind "/" { SwitchToMode "EnterSearch"; SearchInput 0; }

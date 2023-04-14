@@ -97,5 +97,6 @@ alias zs='zellij -s'
 alias zl='zellij ls'
 alias zk='zellij k'
 alias zka='zellij ka'
+alias b='beaverctl'
 
 export XDG_CONFIG_HOME=~/.config
