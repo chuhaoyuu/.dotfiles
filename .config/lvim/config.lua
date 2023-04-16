@@ -39,7 +39,10 @@ vim.cmd [[
 vim.api.nvim_exec([[
   augroup MyColors
     autocmd!
-    autocmd ColorScheme * highlight LineNr guifg=#737aa2 | highlight CursorLineNR guifg=#38ff9c | highlight CursorLine guibg=None
+    autocmd ColorScheme * highlight LineNr guifg=#737aa2
+    autocmd ColorScheme * highlight CursorLineNR guifg=#38ff9c
+    autocmd ColorScheme * highlight CursorLine guibg=None
+    autocmd ColorScheme * highlight TreesitterContext guibg=None
   augroup END
 ]], false)
 
@@ -491,6 +494,7 @@ linters.setup {
 
 -- Additional Plugins
 lvim.plugins = {
+  { 'nvim-treesitter/nvim-treesitter-context' },
   { 'gpanders/editorconfig.nvim' },
   { 'theprimeagen/harpoon' },
   { 'mbbill/undotree' },
