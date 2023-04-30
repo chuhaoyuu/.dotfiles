@@ -24,7 +24,7 @@ vim.opt.incsearch = true
 vim.cmd [[
   augroup ColorcolumnOnlyInInsertMode
     autocmd!
-    autocmd InsertEnter * if &filetype == "python" || &filetype == "yaml.ansible" || &filetype == "yaml" | setlocal colorcolumn=119 | endif
+    autocmd InsertEnter * if &filetype == "python" | setlocal colorcolumn=120 | endif
     autocmd InsertLeave * setlocal colorcolumn=0
   augroup END
 ]]
@@ -205,6 +205,7 @@ lvim.builtin.telescope = {
 }
 
 -- Use which-key to add extra bindings with the leader-key prefix
+lvim.builtin.which_key.setup.window['border'] = 'none'
 lvim.builtin.which_key.setup.plugins.marks = false
 lvim.builtin.which_key.setup.plugins.registers = false
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
@@ -231,8 +232,10 @@ lvim.builtin.bufferline.active = false
 lvim.builtin.alpha.active = false
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.project.active = false
+lvim.builtin.dap.active = false
 lvim.builtin.illuminate.active = false
 lvim.builtin.breadcrumbs.active = false
+lvim.builtin.lir.active = false
 lvim.builtin.nvimtree.active = false
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
@@ -317,6 +320,7 @@ lvim.builtin.treesitter.textobjects.select.keymaps = {
 --   },
 --   duplicates_default = 0,
 -- }
+table.insert(lvim.builtin.cmp.sources, { name = 'nvim_lsp_signature_help' })
 lvim.builtin.cmp.experimental.ghost_text = false
 lvim.builtin.cmp.formatting.fields = { 'kind', 'abbr' }
 lvim.builtin.cmp.formatting.kind_icons = {
@@ -350,11 +354,8 @@ lvim.builtin.cmp.formatting.kind_icons = {
 
 -- lualine
 local components = require("lvim.core.lualine.components")
-lvim.builtin.lualine.sections.lualine_a = { "" }
-lvim.builtin.lualine.sections.lualine_b = {
-  components.filename,
-  components.branch,
-}
+lvim.builtin.lualine.sections.lualine_a = { components.filename }
+lvim.builtin.lualine.sections.lualine_b = { components.branch }
 lvim.builtin.lualine.sections.lualine_x = {
   components.diagnostics,
   components.lsp,
@@ -454,7 +455,7 @@ require("lvim.lsp.manager").setup("ansiblels", opts)
 -- end
 
 -- -- set a formatter, this will override the language server formatting capabilities (if it exists)
-lvim.lsp.diagnostics.virtual_text = true
+lvim.lsp.diagnostics.virtual_text = false
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
   { command = "black", filetypes = { "python" }, extra_args = {"--line-length", "120", "--skip-string-normalization"} },
@@ -500,7 +501,9 @@ lvim.plugins = {
   { 'mbbill/undotree' },
   { 'tpope/vim-surround' },
   { 'tpope/vim-fugitive' },
-  { 'folke/tokyonight.nvim', commit = '3ebc29d' },
+  { 'tpope/vim-repeat' },
+  { 'hrsh7th/cmp-nvim-lsp-signature-help' },
+  -- { 'folke/tokyonight.nvim', commit = '3ebc29d' },
   { 'nvim-treesitter/nvim-treesitter-textobjects', commit = 'b062311' },
   { 'pedrohdz/vim-yaml-folds' },
   { 'fatih/vim-go', run = ":GoUpdateBinaries" },

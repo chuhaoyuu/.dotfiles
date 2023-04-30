@@ -25,6 +25,10 @@ autoload -Uz _zinit
 # OMZ plugins
 zi snippet OMZP::git
 zi snippet OMZP::tmux
+zi snippet OMZP::golang
+zi snippet OMZP::pipenv
+zi snippet OMZP::oc
+zi snippet OMZP::operator-sdk
 
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
@@ -79,6 +83,9 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # kubectl editor
 export KUBE_EDITOR="/usr/local/bin/lvim"
 export ZVM_VI_EDITOR="/usr/local/bin/lvim"
+
+# forgit layout
+export FORGIT_FZF_DEFAULT_OPTS=" --exact --border --cycle --reverse --height '80%' "
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"

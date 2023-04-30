@@ -4,12 +4,12 @@ env:
   TERM: xterm-256color
 
 window:
-  opacity: 0.8
+  opacity: 0.95
   padding:
     x: 10
     y: 10
   dynamic_padding: false
-  decorations: none
+  decorations: buttonless
 
 scrolling:
   history: 99999
@@ -36,7 +36,7 @@ colors:
 
   cursor:
     text: '#010b17'
-    cursor: '#38ff9c'
+    cursor: '#c0caf5'
 
   # Normal colors
   normal:
