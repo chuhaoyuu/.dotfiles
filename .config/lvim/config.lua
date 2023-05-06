@@ -322,6 +322,17 @@ lvim.builtin.treesitter.textobjects.select.keymaps = {
 --   },
 --   duplicates_default = 0,
 -- }
+local cmp = require("cmp")
+lvim.builtin.cmp.mapping = cmp.mapping.preset.insert({
+  ["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
+  ["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
+  ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+  ['<C-d>'] = cmp.mapping.scroll_docs(4),
+  ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+  ['<CR>'] = cmp.mapping.confirm({ select = true }),
+  ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+  ['<C-e>'] = cmp.mapping.complete(),
+})
 table.insert(lvim.builtin.cmp.sources, { name = 'nvim_lsp_signature_help' })
 lvim.builtin.cmp.experimental.ghost_text = false
 lvim.builtin.cmp.formatting.fields = { 'kind', 'abbr' }
@@ -431,14 +442,33 @@ lvim.builtin.bufferline.options.offsets = {
 -- }
 
 -- ---@usage disable automatic installation of servers
--- lvim.lsp.automatic_servers_installation = false
+lvim.lsp.installer.setup.automatic_installation = false
 
 -- ---configure a server manually. !!Requires `:LvimCacheReset` to take effect!!
 -- ---see the full default list `:lua print(vim.inspect(lvim.lsp.automatic_configuration.skipped_servers))`
 -- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
-local opts = {} -- check the lspconfig documentation for a list of all possible options
 -- require("lvim.lsp.manager").setup("pyright", opts)
-require("lvim.lsp.manager").setup("ansiblels", opts)
+local ansible_opts = {}
+require("lvim.lsp.manager").setup("ansiblels", ansible_opts)
+
+local go_opts = {
+  cmd = {'gopls'},
+  settings = {
+    gopls = {
+      experimentalPostfixCompletions = true,
+      analyses = {
+        unusedparams = true,
+        shadow = true,
+      },
+      staticcheck = true,
+    },
+  },
+  init_options = {
+    usePlaceholders = false,
+  }
+}
+require("lvim.lsp.manager").setup("gopls", go_opts)
+
 
 -- ---remove a server from the skipped list, e.g. eslint, or emmet_ls. !!Requires `:LvimCacheReset` to take effect!!
 -- ---`:LvimInfo` lists which server(s) are skipped for the current filetype
@@ -463,7 +493,7 @@ formatters.setup {
   { command = "black", filetypes = { "python" }, extra_args = {"--line-length", "120", "--skip-string-normalization"} },
   -- { command = "yapf", filetypes = { "python" } },
   { command = "isort", filetypes = { "python" } },
-  { command = "yamlfmt", filetypes = { "yaml", "yaml.ansible" } },
+  -- { command = "yamlfmt", filetypes = { "yaml", "yaml.ansible" } },
   --   { command = "isort", filetypes = { "python" } },
   --   {
   --     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
@@ -480,7 +510,7 @@ formatters.setup {
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
   { command = "flake8", filetypes = { "python" } },
-  { command = "yamllint", filetypes = { "yaml", "yaml.ansible" } },
+  -- { command = "yamllint", filetypes = { "yaml", "yaml.ansible" } },
   --   {
   --     -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
   --     command = "shellcheck",
@@ -575,7 +605,7 @@ require("zen-mode").setup({
     },
   },
   -- callback where you can add custom code when the Zen window opens
-  on_open = function(win)
+  on_open = function()
   end,
   -- callback where you can add custom code when the Zen window closes
   on_close = function()
