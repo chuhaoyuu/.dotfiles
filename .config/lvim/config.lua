@@ -25,6 +25,7 @@ vim.cmd [[
   augroup ColorcolumnOnlyInInsertMode
     autocmd!
     autocmd InsertEnter * if &filetype == "python" | setlocal colorcolumn=120 | endif
+    autocmd InsertEnter * if &filetype == "go" | setlocal colorcolumn=80 | endif
     autocmd InsertLeave * setlocal colorcolumn=0
   augroup END
 ]]
@@ -328,9 +329,9 @@ lvim.builtin.cmp.mapping = cmp.mapping.preset.insert({
   ["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
   ['<C-u>'] = cmp.mapping.scroll_docs(-4),
   ['<C-d>'] = cmp.mapping.scroll_docs(4),
-  ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-  ['<CR>'] = cmp.mapping.confirm({ select = true }),
-  ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+  ['<C-y>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+  ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+  ['<Tab>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
   ['<C-e>'] = cmp.mapping.complete(),
 })
 table.insert(lvim.builtin.cmp.sources, { name = 'nvim_lsp_signature_help' })
