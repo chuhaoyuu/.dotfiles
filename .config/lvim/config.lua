@@ -528,7 +528,7 @@ linters.setup {
 
 -- Additional Plugins
 lvim.plugins = {
-  { 'nvim-treesitter/nvim-treesitter-context' },
+  { 'nvim-treesitter/nvim-treesitter-context', commit = 'e1dc868' },
   { 'gpanders/editorconfig.nvim' },
   { 'theprimeagen/harpoon' },
   { 'mbbill/undotree' },

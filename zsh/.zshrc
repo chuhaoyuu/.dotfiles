@@ -28,7 +28,6 @@ zi snippet OMZP::tmux
 zi snippet OMZP::golang
 zi snippet OMZP::pipenv
 zi snippet OMZP::oc
-zi snippet OMZP::operator-sdk
 
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
@@ -105,5 +104,6 @@ alias zl='zellij ls'
 alias zk='zellij k'
 alias zka='zellij ka'
 alias b='beaverctl'
+alias grep='grep --color'
 
 export XDG_CONFIG_HOME=~/.config
