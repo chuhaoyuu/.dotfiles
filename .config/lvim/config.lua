@@ -230,8 +230,9 @@ lvim.builtin.which_key.mappings["f"] = { ":Telescope live_grep theme=ivy<cr>", "
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.terminal.active = true
-lvim.builtin.autopairs.active = true
+lvim.builtin.autopairs.active = false
 lvim.builtin.bufferline.active = false
+lvim.builtin.indentlines.active = false
 lvim.builtin.alpha.active = false
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.project.active = false
@@ -373,7 +374,7 @@ lvim.builtin.lualine.sections.lualine_b = { components.branch }
 lvim.builtin.lualine.sections.lualine_x = {
   components.diagnostics,
   components.lsp,
-  components.spaces,
+  -- components.spaces,
   components.treesitter,
   components.filetype
 }
@@ -488,7 +489,7 @@ require("lvim.lsp.manager").setup("gopls", go_opts)
 -- end
 
 -- -- set a formatter, this will override the language server formatting capabilities (if it exists)
-lvim.lsp.diagnostics.virtual_text = false
+lvim.lsp.diagnostics.virtual_text = true
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
   { command = "black", filetypes = { "python" }, extra_args = {"--line-length", "120", "--skip-string-normalization"} },

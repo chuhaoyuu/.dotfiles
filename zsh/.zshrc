@@ -37,13 +37,22 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-patch-dl \
     zdharma-continuum/zinit-annex-rust
 
-zinit light zsh-users/zsh-syntax-highlighting
+# zinit light zsh-users/zsh-syntax-highlighting
+zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 zinit load agkozak/zsh-z
 zinit load wfxr/forgit
 zinit ice depth=1
 zinit light jeffreytse/zsh-vi-mode
+
+zinit wait lucid for \
+ atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+    zdharma-continuum/fast-syntax-highlighting \
+ blockf \
+    zsh-users/zsh-completions \
+ atload"!_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions
 
 autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
