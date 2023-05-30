@@ -71,9 +71,10 @@ source <(kubectl completion zsh)
 
 # history
 export HISTFILE=~/.zsh_history
-HISTSIZE=999999999
-SAVEHIST=999999999
-setopt share_history
+export HISTSIZE=999999999
+export SAVEHIST=$HISTSIZE
+setopt SHARE_HISTORY
+setopt EXTENDED_HISTORY
 
 # key binding
 bindkey "^U" backward-kill-line
@@ -106,13 +107,17 @@ alias l='lsd -l'
 alias la='lsd -a'
 alias lla='lsd -la'
 alias lt='lsd --tree'
+
 alias vi='lvim'
+alias vim='lvim'
+alias grep='grep --color'
+
 alias zad='zellij a'
 alias zs='zellij -s'
 alias zl='zellij ls'
 alias zk='zellij k'
 alias zka='zellij ka'
+
 alias b='beaverctl'
-alias grep='grep --color'
 
 export XDG_CONFIG_HOME=~/.config

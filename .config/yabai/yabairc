@@ -33,3 +33,4 @@ yabai -m rule --add app="^Spotify$" manage=off
 yabai -m rule --add app="^Notion$" manage=off
 yabai -m rule --add app="^Sourcetree$" manage=off
 yabai -m rule --add app="^預覽程式$" manage=off
+yabai -m rule --add app="^GitUp" manage=off
