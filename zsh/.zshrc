@@ -46,13 +46,13 @@ zinit load wfxr/forgit
 zinit ice depth=1
 zinit light jeffreytse/zsh-vi-mode
 
-zinit wait lucid for \
- atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
-    zdharma-continuum/fast-syntax-highlighting \
- blockf \
-    zsh-users/zsh-completions \
- atload"!_zsh_autosuggest_start" \
-    zsh-users/zsh-autosuggestions
+# zinit wait lucid for \
+#  atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+#     zdharma-continuum/fast-syntax-highlighting \
+#  blockf \
+#     zsh-users/zsh-completions \
+#  atload"!_zsh_autosuggest_start" \
+#     zsh-users/zsh-autosuggestions
 
 autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit

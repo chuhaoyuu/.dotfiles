@@ -126,7 +126,7 @@ local _, actions = pcall(require, "telescope.actions")
 lvim.builtin.telescope = {
   active = true,
   defaults = {
-    prompt_prefix = " ",
+    prompt_prefix = " ",
     selection_caret = " ",
     entry_prefix = "  ",
     initial_mode = "insert",
@@ -135,7 +135,7 @@ lvim.builtin.telescope = {
     layout_strategy = "horizontal",
     layout_config = {
       prompt_position = "top",
-      width = 0.75,
+      width = 0.85,
       preview_cutoff = 120,
       horizontal = {
         preview_width = function(_, cols, _)
@@ -338,34 +338,6 @@ lvim.builtin.cmp.mapping = cmp.mapping.preset.insert({
 table.insert(lvim.builtin.cmp.sources, { name = 'nvim_lsp_signature_help' })
 lvim.builtin.cmp.experimental.ghost_text = false
 lvim.builtin.cmp.formatting.fields = { 'kind', 'abbr' }
-lvim.builtin.cmp.formatting.kind_icons = {
-  Interface = "ﴯ ",
-  Class = " ",
-  Method = " ",
-  Module = " ",
-  Text = " ",
-  Property = "ﰠ ",
-  Variable = " ",
-  Function = " ",
-  Constructor = " ",
-  Field = " ",
-  Unit = "塞 ",
-  Value = " ",
-  Enum = " ",
-  Keyword = " ",
-  Snippet = " ",
-  Color = " ",
-  File = " ",
-  Reference = " ",
-  Folder = " ",
-  EnumMember = " ",
-  Constant = " ",
-  Struct = "פּ ",
-  Event = " ",
-  Operator = " ",
-  TypeParameter = " ",
-
-}
 
 -- lualine
 local components = require("lvim.core.lualine.components")
@@ -489,7 +461,8 @@ require("lvim.lsp.manager").setup("gopls", go_opts)
 -- end
 
 -- -- set a formatter, this will override the language server formatting capabilities (if it exists)
-lvim.lsp.diagnostics.virtual_text = true
+-- lvim.lsp.diagnostics.virtual_text = true
+vim.diagnostic.config({ virtual_text = true })
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
   { command = "black", filetypes = { "python" }, extra_args = {"--line-length", "120", "--skip-string-normalization"} },
@@ -536,11 +509,12 @@ lvim.plugins = {
   { 'tpope/vim-surround' },
   { 'tpope/vim-fugitive' },
   { 'tpope/vim-repeat' },
+  { 'towolf/vim-helm' },
   { 'hrsh7th/cmp-nvim-lsp-signature-help' },
   -- { 'folke/tokyonight.nvim', commit = '3ebc29d' },
   { 'nvim-treesitter/nvim-treesitter-textobjects', commit = 'b062311' },
   { 'pedrohdz/vim-yaml-folds' },
-  { 'fatih/vim-go', run = ":GoUpdateBinaries" },
+  { 'fatih/vim-go', build = ":GoUpdateBinaries" },
   { 'windwp/nvim-ts-autotag',
     config = function()
       require("nvim-ts-autotag").setup()
