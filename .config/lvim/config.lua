@@ -241,6 +241,7 @@ lvim.builtin.illuminate.active = false
 lvim.builtin.breadcrumbs.active = false
 lvim.builtin.lir.active = false
 lvim.builtin.nvimtree.active = false
+lvim.builtin.bigfile.active = false
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 lvim.builtin.nvimtree.setup.filters.custom = { "node_modules", "\\.cache", "__pycache__" }
@@ -260,7 +261,8 @@ lvim.builtin.treesitter.ensure_installed = {
   "java",
   "yaml",
   "dockerfile",
-  "go"
+  "go",
+  "gitcommit"
 }
 
 lvim.builtin.treesitter.autotag.enable = true
@@ -280,36 +282,6 @@ lvim.builtin.treesitter.textobjects.select.keymaps = {
   ["aa"] = "@parameter.outer",
   ["ia"] = "@parameter.inner"
 }
-
--- require('lspkind').init({
---   symbol_map = {
---     Interface = "ﴯ",
---     Class = "",
---     Method = "",
---     Module = "",
---     Text = "",
---     Property = "ﰠ",
---     Variable = "",
---     Function = "",
---     Constructor = "",
---     Field = "",
---     Unit = "塞",
---     Value = "",
---     Enum = "",
---     Keyword = "",
---     Snippet = "",
---     Color = "",
---     File = "",
---     Reference = "",
---     Folder = "",
---     EnumMember = "",
---     Constant = "",
---     Struct = "פּ",
---     Event = "",
---     Operator = "",
---     TypeParameter = "",
---   },
--- })
 
 -- vscode like cmp format
 -- local lspkind = require('lspkind')
