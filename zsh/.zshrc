@@ -121,3 +121,19 @@ alias zka='zellij ka'
 alias b='beaverctl'
 
 export XDG_CONFIG_HOME=~/.config
+
+export ZVM_CURSOR_STYLE_ENABLED=false
+function zle-keymap-select {
+    if [[ ${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]; then
+        echo -ne '\e[1 q'
+    elif [[ ${KEYMAP} == main ]] || [[ ${KEYMAP} == viins ]] || [[ ${KEYMAP} = '' ]] || [[ $1 = 'beam' ]]; then
+        echo -ne '\e[1 q'
+    fi
+}
+
+zle -N zle-keymap-select
+
+_fix_cursor() {
+    echo -ne '\e[1 q'
+}
+precmd_functions+=(_fix_cursor)
