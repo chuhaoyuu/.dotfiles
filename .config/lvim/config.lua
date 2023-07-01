@@ -9,6 +9,7 @@ an executable
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 
 -- general
+vim.opt.showmode = true
 vim.opt.showtabline = 0
 vim.opt.guicursor = ""
 vim.opt.updatetime = 50
@@ -69,6 +70,7 @@ lvim.keys.normal_mode["L"] = "L"
 -- lvim.keys.normal_mode["<C-q>"] = ":q<cr>" -- or vim.keymap.set("n", "<C-q>", ":q<cr>" )
 local keymap_opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
+keymap("i", "<C-c>", "<Esc>", keymap_opts)
 keymap("n", "go", "`[v`]", keymap_opts)
 
 keymap("n", "J", "mzJ`z", keymap_opts)
@@ -208,12 +210,14 @@ lvim.builtin.telescope = {
 }
 
 -- Use which-key to add extra bindings with the leader-key prefix
+lvim.builtin.which_key.setup.triggers = ''
 lvim.builtin.which_key.setup.window['border'] = 'none'
 lvim.builtin.which_key.setup.plugins.marks = false
 lvim.builtin.which_key.setup.plugins.registers = false
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 lvim.builtin.which_key.mappings["p"] = { ":Telescope find_files<cr>", "Find Files" }
 lvim.builtin.which_key.mappings["f"] = { ":Telescope live_grep theme=ivy<cr>", "Live Grep" }
+lvim.builtin.which_key.mappings["e"] = { "" }
 -- lvim.builtin.which_key.mappings["x"] = { ":bdelete<cr>", "Close buffer" }
 
 
@@ -317,7 +321,7 @@ lvim.builtin.lualine.sections.lualine_a = { components.filename }
 lvim.builtin.lualine.sections.lualine_b = { components.branch }
 lvim.builtin.lualine.sections.lualine_x = {
   components.diagnostics,
-  components.lsp,
+  -- components.lsp,
   -- components.spaces,
   components.treesitter,
   components.filetype
@@ -434,7 +438,7 @@ require("lvim.lsp.manager").setup("gopls", go_opts)
 
 -- -- set a formatter, this will override the language server formatting capabilities (if it exists)
 -- lvim.lsp.diagnostics.virtual_text = true
-vim.diagnostic.config({ virtual_text = true })
+vim.diagnostic.config({ virtual_text = false })
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
   { command = "black", filetypes = { "python" }, extra_args = {"--line-length", "120", "--skip-string-normalization"} },
