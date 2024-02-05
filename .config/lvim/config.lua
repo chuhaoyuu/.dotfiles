@@ -523,7 +523,7 @@ require("zen-mode").setup({
     -- * an absolute number of cells when > 1
     -- * a percentage of the width / height of the editor when <= 1
     -- * a function that returns the width or the height
-    width = 130, -- width of the Zen window
+    width = 120, -- width of the Zen window
     height = 1, -- height of the Zen window
     -- by default, no options are changed for the Zen window
     -- uncomment any of the options below, or add other vim.wo options you want to apply
@@ -551,9 +551,9 @@ require("zen-mode").setup({
     -- this will change the font size on alacritty when in zen mode
     -- requires  Alacritty Version 0.10.0 or higher
     -- uses `alacritty msg` subcommand to change font size
-    alacritty = {
+    kitty = {
       enabled = true,
-      font = "22", -- font size
+      font = "+6", -- font size
     },
   },
   -- callback where you can add custom code when the Zen window opens

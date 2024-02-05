@@ -9,6 +9,16 @@ keymap("n", "J", "mzJ`z", keymap_opts)
 keymap("n", "n", "nzzzv", keymap_opts)
 keymap("n", "N", "Nzzzv", keymap_opts)
 
+-- Better window movement
+keymap("n", "<C-h>", "<C-w>h", keymap_opts)
+keymap("n", "<C-j>", "<C-w>j", keymap_opts)
+keymap("n", "<C-k>", "<C-w>k", keymap_opts)
+keymap("n", "<C-l>", "<C-w>l", keymap_opts)
+
+-- Better indenting
+keymap("v", "<", "<gv", keymap_opts)
+keymap("v", ">", ">gv", keymap_opts)
+
 keymap("n", "<C-p>", "\"0P", keymap_opts)
 keymap("x", "<C-p>", "\"_dP", keymap_opts)
 keymap("n", "<space>d", "\"_d", keymap_opts)

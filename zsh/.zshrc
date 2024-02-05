@@ -71,9 +71,14 @@ source <(kubectl completion zsh)
 
 # history
 export HISTFILE=~/.zsh_history
-export HISTSIZE=999999999
+export HISTSIZE=1000000000
 export SAVEHIST=$HISTSIZE
-setopt SHARE_HISTORY
+setopt INC_APPEND_HISTORY
+setopt INC_APPEND_HISTORY_TIME
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_FIND_NO_DUPS
+
 setopt EXTENDED_HISTORY
 
 # key binding
@@ -90,8 +95,8 @@ POWERLEVEL10K_MODE='nerdfont-fontconfig'
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # kubectl editor
-export KUBE_EDITOR="/usr/local/bin/lvim"
-export ZVM_VI_EDITOR="/usr/local/bin/lvim"
+export KUBE_EDITOR="/usr/local/bin/nvim"
+export ZVM_VI_EDITOR="/usr/local/bin/nvim"
 
 # forgit layout
 export FORGIT_FZF_DEFAULT_OPTS=" --exact --border --cycle --reverse --height '80%' "
@@ -108,8 +113,8 @@ alias la='lsd -a'
 alias lla='lsd -la'
 alias lt='lsd --tree'
 
-alias vi='lvim'
-alias vim='lvim'
+alias vi='nvim'
+alias vim='nvim'
 alias grep='grep --color'
 
 alias zad='zellij a'
