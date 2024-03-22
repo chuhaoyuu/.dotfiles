@@ -14,8 +14,6 @@ brew "pycparser"
 brew "cffi"
 # Text processing system for reStructuredText
 brew "docutils", link: false
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.11"
 # Official Amazon AWS command-line interface
 brew "awscli"
 # Cryptography and SSL/TLS Toolkit
@@ -78,8 +76,6 @@ brew "kustomize"
 brew "lazygit"
 # Sophisticated file transfer program
 brew "lftp"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.9"
 # General purpose TCP-IP emulator
 brew "libslirp"
 # Clone of ls with colorful output, file type icons, and more
@@ -104,12 +100,8 @@ brew "podman"
 brew "pulumi"
 # Python version management
 brew "pyenv"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.10"
 # Tool Command Language
 brew "tcl-tk"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.8"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Powerful, clean, object-oriented scripting language
@@ -145,60 +137,15 @@ cask "alt-tab"
 # App to build and share containerised applications and microservices
 cask "docker"
 # Developer targeted fonts with a high number of glyphs
-cask "font-arimo-nerd-font"
-# Developer targeted fonts with a high number of glyphs
 cask "font-fira-code-nerd-font"
 # Developer targeted fonts with a high number of glyphs
 cask "font-fira-mono-nerd-font"
 cask "font-hack"
 # Developer targeted fonts with a high number of glyphs
 cask "font-hack-nerd-font"
-# Developer targeted fonts with a high number of glyphs
-cask "font-meslo-lg-nerd-font"
-cask "font-sf-mono-nerd-font"
-cask "font-sourcecodepro-nerd-font"
 # Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
 # Full TeX Live distribution with GUI applications
 cask "mactex"
 # Smooths scrolling and set mouse scroll directions independently
 cask "mos"
-cask "postgres"
-# Move and resize windows using keyboard shortcuts or snap areas
-cask "rectangle"
-# Graphical client for Git version control
-cask "sourcetree"
-# Music streaming service
-cask "spotify"
-# Text editor for code, markup and prose
-cask "sublime-text"
-# Open-source code editor
-cask "visual-studio-code"
-# HTML to PDF renderer
-cask "wkhtmltopdf"
-vscode "adpyke.codesnap"
-vscode "github.remotehub"
-vscode "golang.go"
-vscode "hbenl.vscode-test-explorer"
-vscode "joffreykern.markdown-toc"
-vscode "littlefoxteam.vscode-python-test-adapter"
-vscode "mindaro-dev.file-downloader"
-vscode "mindaro.mindaro"
-vscode "ms-azuretools.vscode-docker"
-vscode "ms-kubernetes-tools.vscode-kubernetes-tools"
-vscode "ms-python.debugpy"
-vscode "ms-python.python"
-vscode "ms-python.vscode-pylance"
-vscode "ms-toolsai.jupyter"
-vscode "ms-toolsai.jupyter-keymap"
-vscode "ms-toolsai.jupyter-renderers"
-vscode "ms-toolsai.vscode-jupyter-cell-tags"
-vscode "ms-toolsai.vscode-jupyter-slideshow"
-vscode "ms-vscode-remote.remote-ssh"
-vscode "ms-vscode-remote.remote-ssh-edit"
-vscode "ms-vscode.azure-repos"
-vscode "ms-vscode.remote-explorer"
-vscode "ms-vscode.remote-repositories"
-vscode "ms-vscode.test-adapter-converter"
-vscode "mvllow.rose-pine"
-vscode "redhat.vscode-yaml"

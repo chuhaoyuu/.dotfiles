@@ -1,0 +1,13 @@
+#/bin/zsh
+
+for d in */; do
+    if [ "$d" != "iTerm/" ]; then
+        stow $d
+    fi
+done
+
+
+FILE=/etc/os-release
+if [ ! -f "$FILE" ]; then
+    brew bundle install --file=~/.Brewfile
+fi
