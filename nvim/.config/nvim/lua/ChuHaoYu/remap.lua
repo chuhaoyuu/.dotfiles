@@ -63,14 +63,16 @@ keymap("n", "<space>e", ":Rex<CR>", keymap_opts)
 
 keymap("n", "<space>zz", ":ZenMode<CR>", keymap_opts)
 
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
-
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- yaml fold
+vim.keymap.set("n", "<backspace>", "<cmd>foldclose<CR>", keymap_opts)
+vim.cmd [[ set foldlevel=99 ]]
 
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 

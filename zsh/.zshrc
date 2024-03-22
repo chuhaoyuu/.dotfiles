@@ -46,6 +46,8 @@ zinit load wfxr/forgit
 zinit ice depth=1
 zinit light jeffreytse/zsh-vi-mode
 
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#555169"
+
 # zinit wait lucid for \
 #  atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
 #     zdharma-continuum/fast-syntax-highlighting \
@@ -91,6 +93,13 @@ POWERLEVEL10K_MODE='nerdfont-fontconfig'
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+export FZF_CTRL_R_OPTS="
+  --preview 'echo {}' --preview-window up:3:hidden:wrap
+  --bind 'ctrl-/:toggle-preview'
+  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+  --color header:italic
+  --header 'Press CTRL-Y to copy command into clipboard'"
+
 # krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
@@ -117,28 +126,8 @@ alias vi='nvim'
 alias vim='nvim'
 alias grep='grep --color'
 
-alias zad='zellij a'
-alias zs='zellij -s'
-alias zl='zellij ls'
-alias zk='zellij k'
-alias zka='zellij ka'
-
 alias b='beaverctl'
+alias kc='kubectx'
+alias kn='kubens'
 
 export XDG_CONFIG_HOME=~/.config
-
-export ZVM_CURSOR_STYLE_ENABLED=false
-function zle-keymap-select {
-    if [[ ${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]; then
-        echo -ne '\e[1 q'
-    elif [[ ${KEYMAP} == main ]] || [[ ${KEYMAP} == viins ]] || [[ ${KEYMAP} = '' ]] || [[ $1 = 'beam' ]]; then
-        echo -ne '\e[1 q'
-    fi
-}
-
-zle -N zle-keymap-select
-
-_fix_cursor() {
-    echo -ne '\e[1 q'
-}
-precmd_functions+=(_fix_cursor)

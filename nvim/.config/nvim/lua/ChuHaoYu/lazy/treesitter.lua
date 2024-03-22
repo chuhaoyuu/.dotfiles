@@ -6,7 +6,7 @@ return {
             -- A list of parser names, or "all"
             ensure_installed = {
                 "vimdoc", "javascript", "typescript", "c", "lua", "rust",
-                "jsdoc", "bash", "python"
+                "jsdoc", "bash", "python", "go", "gomod", "gosum"
             },
 
             -- Install parsers synchronously (only applied to `ensure_installed`)
@@ -19,6 +19,31 @@ return {
             indent = {
                 enable = true
             },
+            textobjects = {
+              select = {
+                enable = true,
+
+                -- Automatically jump forward to textobj, similar to targets.vim
+                lookahead = true,
+
+                keymaps = {
+                  ["a,"] = "@call.outer",
+                  ["i,"] = "@call.inner",
+                  ["aC"] = "@class.outer",
+                  ["iC"] = "@class.inner",
+                  ["ac"] = "@conditional.outer",
+                  ["ic"] = "@conditional.inner",
+                  ["af"] = "@function.outer",
+                  ["if"] = "@function.inner",
+                  ["al"] = "@loop.outer",
+                  ["il"] = "@loop.inner",
+                  ["aa"] = "@parameter.outer",
+                  ["ia"] = "@parameter.inner"
+                },
+                include_surrounding_whitespace = true,
+            },
+          },
+
 
             highlight = {
                 -- `false` will disable the whole extension

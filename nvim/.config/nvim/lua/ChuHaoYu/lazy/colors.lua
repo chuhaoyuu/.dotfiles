@@ -42,7 +42,7 @@ return {
                 disable_background = true,
                 styles = {
                   bold = true,
-                  italic = true,
+                  italic = false,
                   transparency = true,
                 }
             })
