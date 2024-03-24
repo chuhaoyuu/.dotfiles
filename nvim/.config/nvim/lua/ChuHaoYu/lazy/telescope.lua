@@ -9,6 +9,7 @@ return {
 
   config = function()
     local _, actions = pcall(require, "telescope.actions")
+    local _, builtin = pcall(require, "telescope.builtin")
     require('telescope').setup{
       active = true,
       defaults = {
@@ -92,5 +93,16 @@ return {
         generic_sorter = require 'telescope.sorters'.get_generic_fuzzy_sorter,
       }
     }
+    vim.keymap.set('n', '<leader>p', builtin.find_files, {})
+    vim.keymap.set("n", "<leader>f", ":Telescope live_grep theme=ivy<cr>")
+    vim.keymap.set('n', '<C-p>', builtin.git_files, {})
+    vim.keymap.set('n', '<leader>w', function()
+      local word = vim.fn.expand("<cword>")
+      builtin.grep_string({ search = word })
+    end)
+    vim.keymap.set('n', '<leader>W', function()
+      local word = vim.fn.expand("<cWORD>")
+      builtin.grep_string({ search = word })
+    end)
   end
 }

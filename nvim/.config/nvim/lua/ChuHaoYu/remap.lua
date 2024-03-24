@@ -76,8 +76,6 @@ vim.cmd [[ set foldlevel=99 ]]
 
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 
-vim.keymap.set("n", "<leader>p", ":Telescope find_files<cr>")
-vim.keymap.set("n", "<leader>f", ":Telescope live_grep theme=ivy<cr>")
 -- git --
 vim.keymap.set("n", "<leader>go", ":Telescope git_status<cr>")
 vim.keymap.set("n", "<leader>gj", "<cmd>lua require 'gitsigns'.next_hunk({navigation_message = false})<cr>")
@@ -86,8 +84,6 @@ vim.keymap.set("n", "<leader>gl", "<cmd>lua require 'gitsigns'.blame_line()<cr>"
 vim.keymap.set("n", "<leader>gp", "<cmd>lua require 'gitsigns'.preview_hunk()<cr>")
 vim.keymap.set("n", "<leader>gr", "<cmd>lua require 'gitsigns'.reset_hunk()<cr>")
 vim.keymap.set("n", "<leader>gR", "<cmd>lua require 'gitsigns'.reset_buffer()<cr>")
-vim.keymap.set("n", "<leader>gs", "<cmd>lua require 'gitsigns'.stage_hunk()<cr>")
-vim.keymap.set("n", "<leader>gu", "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>")
 vim.keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>")
 vim.keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>")
 
