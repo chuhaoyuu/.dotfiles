@@ -5,9 +5,3 @@ for d in */; do
         stow $d
     fi
 done
-
-
-FILE=/etc/os-release
-if [ ! -f "$FILE" ]; then
-    brew bundle install --file=~/.Brewfile
-fi
