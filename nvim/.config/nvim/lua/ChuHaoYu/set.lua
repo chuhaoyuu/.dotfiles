@@ -36,7 +36,7 @@ vim.cmd [[
   augroup ColorcolumnOnlyInInsertMode
     autocmd!
     autocmd InsertEnter * if &filetype == "python" | setlocal colorcolumn=120 | endif
-    autocmd InsertEnter * if &filetype == "go" | setlocal colorcolumn=80 | endif
+    autocmd InsertEnter * if &filetype == "go" | setlocal colorcolumn=120 | endif
     autocmd InsertLeave * setlocal colorcolumn=0
   augroup END
 ]]

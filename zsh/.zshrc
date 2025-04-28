@@ -5,6 +5,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# brew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 export TERM="xterm-256color"
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -26,7 +29,7 @@ autoload -Uz _zinit
 zi snippet OMZP::git
 zi snippet OMZP::tmux
 zi snippet OMZP::golang
-zi snippet OMZP::pipenv
+# zi snippet OMZP::pipenv
 zi snippet OMZP::oc
 
 # Load a few important annexes, without Turbo
@@ -73,6 +76,7 @@ source <(kubectl completion zsh)
 
 # history
 export HISTFILE=~/.zsh_history
+export HISTFILESIZE=1000000000
 export HISTSIZE=1000000000
 export SAVEHIST=$HISTSIZE
 setopt INC_APPEND_HISTORY
@@ -80,7 +84,9 @@ setopt INC_APPEND_HISTORY_TIME
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_FIND_NO_DUPS
-
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt SHARE_HISTORY
 setopt EXTENDED_HISTORY
 
 # key binding
@@ -104,8 +110,8 @@ export FZF_CTRL_R_OPTS="
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # kubectl editor
-export KUBE_EDITOR="/usr/local/bin/nvim"
-export ZVM_VI_EDITOR="/usr/local/bin/nvim"
+export KUBE_EDITOR="/opt/homebrew/bin/nvim"
+export ZVM_VI_EDITOR="/opt/homebrew/bin/nvim"
 
 # forgit layout
 export FORGIT_FZF_DEFAULT_OPTS=" --exact --border --cycle --reverse --height '80%' "

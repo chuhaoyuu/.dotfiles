@@ -32,7 +32,7 @@ return {
         })
 
 
-        vim.keymap.set("n", "gl", "<cmd>diffget //2<CR>")
-        vim.keymap.set("n", "gr", "<cmd>diffget //3<CR>")
+        vim.keymap.set("n", "gq", "<cmd>diffget //2<CR>")
+        vim.keymap.set("n", "gp", "<cmd>diffget //3<CR>")
     end
 }
