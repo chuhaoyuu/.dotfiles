@@ -1,0 +1,239 @@
+{
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<Esc>"],
+      "when": ["editorFocus"],
+      "commands": [":nohl"],
+      "silent": true
+    },
+    {
+      "before": ["<C-d>"],
+      "after": ["M", "<C-d>", "z", "z"]
+    },
+    {
+      "before": ["<C-u>"],
+      "after": ["M", "<C-u>", "z", "z"]
+    },
+    {
+      "before": ["<C-f>"],
+      "after": ["M", "<C-f>", "z", "z"]
+    },
+    {
+      "before": ["<C-b>"],
+      "after": ["M", "<C-b>", "z", "z"]
+    }
+  ],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": [":"],
+      "commands": ["workbench.action.showCommands"]
+    },
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    }
+  ],
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["<C-o>"],
+      "commands": ["workbench.action.navigateBack"]
+    },
+    {
+      "before": ["<C-i>"],
+      "commands": ["workbench.action.navigateForward"]
+    }
+  ],
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false
+  },
+  "vim.incsearch": true,
+  "vim.searchHighlightColor": "#f6ff0080",
+  "vim.searchHighlightTextColor": "#fff",
+  "vim.useSystemClipboard": false,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.highlightedyank.enable": true,
+  "vim.smartRelativeLine": false,
+  "vim.surround": true,
+  "vim.easymotion": true,
+  "vim.cursorStylePerMode.insert": "block",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false
+  },
+  "gopls": {
+    "ui.semanticTokens": true
+  },
+  "[go.mod]": {
+    "editor.defaultFormatter": "golang.go"
+  },
+  "[go]": {
+    "editor.defaultFormatter": "golang.go"
+  },
+  "go.toolsManagement.autoUpdate": true,
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1
+  },
+  "todohighlight.keywords": [
+    {
+      "text": "NOTE:",
+      "color": "#3c3c3c",
+      "backgroundColor": "lightblue"
+    }
+  ],
+  "cSpell.spellCheckDelayMs": 350,
+  "cSpell.textDecorationColor": "lightblue",
+  "cSpell.overviewRulerColor": "",
+  "cSpell.suggestionsTimeout": 500,
+  "breadcrumbs.enabled": false,
+  "breadcrumbs.symbolPath": "off",
+  "window.title": " ",
+  "workbench.tips.enabled": false,
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.scrollbar.verticalScrollbarSize": 12,
+  "editor.cursorBlinking": "solid",
+  "editor.lineNumbers": "relative",
+  "editor.fontSize": 14.5,
+  "editor.fontFamily": "FiraCode Nerd Font Mono",
+  "editor.fontWeight": "450",
+  "editor.renderLineHighlight": "none",
+  "editor.fontLigatures": "'ss04', 'zero'",
+  "editor.minimap.enabled": false,
+  "terminal.integrated.fontSize": 14.5,
+  "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
+  "terminal.integrated.fontWeight": "450",
+  "terminal.integrated.fontLigatures.enabled": true,
+  "workbench.colorCustomizations": {
+    "editorOverviewRuler.addedForeground": "#0000",
+    "editorOverviewRuler.modifiedForeground": "#0000",
+    "editorOverviewRuler.deletedForeground": "#0000",
+    "editorOverviewRuler.infoForeground": "#0000",
+    "editorOverviewRuler.warningForeground": "#0000",
+    "editorOverviewRuler.errorForeground": "#0000",
+    "editorOverviewRuler.bracketMatchForeground": "#0000",
+    "editorOverviewRuler.commentForeground": "#0000",
+    "editorOverviewRuler.commentUnresolvedForeground": "#0000",
+    "editorOverviewRuler.currentContentForeground": "#0000",
+    "editorOverviewRuler.commonContentForeground": "#0000",
+    "editorOverviewRuler.incomingContentForeground": "#0000",
+    "editorOverviewRuler.findMatchForeground": "#0000",
+    "editorOverviewRuler.rangeHighlightForeground": "#0000",
+    "editorOverviewRuler.selectionHighlightForeground": "#0000",
+    "editorOverviewRuler.wordHighlightForeground": "#0000",
+    "editorOverviewRuler.wordHighlightStrongForeground": "#0000",
+    "editorOverviewRuler.wordHighlightTextForeground": "#0000",
+    "editorLineNumber.foreground": "#737aa2",
+    "editorLineNumber.activeForeground": "#38ff9c",
+    "editor.selectionHighlightBackground": "#00000000",
+    "terminal.background": "#00000000",
+    "statusBarItem.remoteBackground": "#0000",
+    "statusBarItem.remoteForeground": "#e0def4"
+  },
+  // "editor.tokenColorCustomizations": {
+  //   "textMateRules": [
+  //     {
+  //       "name": "italic font",
+  //       "scope": [
+  //         "comment",
+  //         "keyword",
+  //         "storage",
+  //         "keyword.control",
+  //         "keyword.control.from",
+  //         "keyword.control.flow",
+  //         "keyword.operator.new",
+  //         "keyword.control.import",
+  //         "keyword.control.export",
+  //         "keyword.control.default",
+  //         "keyword.control.trycatch",
+  //         "keyword.control.conditional",
+  //         "storage.type",
+  //         "storage.type.class",
+  //         "storage.modifier.tsx",
+  //         "storage.type.function",
+  //         "storage.modifier.anc",
+  //         "variable.language",
+  //         "variable.language.this",
+  //         "variable.language.super",
+  //         "meta.class",
+  //         "meta.var.expr",
+  //         "constant.language.null",
+  //         "support.type.primitive",
+  //         "entity.name.method.js",
+  //         "entity.other.attribute-name",
+  //         "punctuation.definition.comment",
+  //         "text.html.basic entity.other.attribute-name",
+  //         "tag.decorator.js entity.name.tag.js",
+  //         "tag.decorator.js punctuation.definition.tag.js",
+  //         "source.js constant.other.object.key.js string.unquoted.label.js"
+  //       ],
+  //       "settings": {
+  //         "fontStyle": "italic"
+  //       }
+  //     }
+  //   ]
+  // },
+  "zenMode.hideStatusBar": false,
+  "window.density.editorTabHeight": "compact",
+  "workbench.editor.navigationScope": "editorGroup",
+  "editor.linkedEditing": true,
+  "editor.formatOnSave": true,
+  "terminal.integrated.commandsToSkipShell": ["workbench.action.closePanel"],
+  "terminal.integrated.defaultProfile.windows": "Windows PowerShell",
+  "editor.accessibilitySupport": "off",
+  "git.openRepositoryInParentFolders": "always",
+  "extensions.ignoreRecommendations": true,
+  "settingsSync.keybindingsPerPlatform": false,
+  "telemetry.telemetryLevel": "off",
+  "security.workspace.trust.banner": "never",
+  "security.workspace.trust.untrustedFiles": "open",
+  "security.workspace.trust.startupPrompt": "never",
+  "security.workspace.trust.enabled": false,
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "git.autoStash": true,
+  "git.autofetch": true,
+  "zenMode.fullScreen": true,
+  "zenMode.hideLineNumbers": false,
+  "explorer.confirmDragAndDrop": false,
+  "workbench.startupEditor": "welcomePageInEmptyWorkbench",
+  "explorer.confirmDelete": false,
+  "explorer.confirmPasteNative": false,
+  "terminal.integrated.scrollback": 5000,
+  "terminal.integrated.enableMultiLinePasteWarning": "never",
+  "workbench.activityBar.orientation": "vertical",
+  "editor.codeLensFontFamily": "FiraCode Nerd Font Mono",
+  "workbench.activityBar.location": "top",
+  "python.analysis.typeCheckingMode": "basic",
+  "workbench.colorTheme": "Default Dark+",
+  "vim.cursorStylePerMode.normal": "block",
+  "window.systemColorTheme": "dark",
+  "window.titleBarStyle": "custom",
+  "vscode_vibrancy.opacity": 0,
+  "vscode_vibrancy.refreshInterval": 10,
+  "terminal.integrated.gpuAcceleration": "off",
+  "window.autoDetectColorScheme": false,
+  "editor.stickyScroll.enabled": true,
+  "editor.roundedSelection": false,
+  "editor.selectionHighlight": false,
+  "editor.occurrencesHighlight": "off",
+  "vscode_custom_css.imports": [
+    "file:///Users/cfh00810744/.dotfiles/custom-vs.css",
+    "file:///Users/cfh00810744/.dotfiles/vs-script.js"
+  ],
+  // "workbench.editor.showTabs": "none",
+  // "workbench.editor.editorActionsLocation": "hidden",
+  "window.commandCenter": false,
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    {
+      "file": ".github/.copilot-commit-message-instructions.md"
+    }
+  ]
+}

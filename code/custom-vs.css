@@ -1,0 +1,46 @@
+/* Command palette text input */
+.quick-input-filter .monaco-inputbox {
+    border-radius: 5px !important;
+    padding: 5px !important;
+    border: none !important;
+    background-color: rgba(34, 34, 34, .40) !important;
+    font-family: "FiraCode Mono" !important;
+    font-size: 14.5px !important;
+    margin-bottom: 16px !important;
+}
+
+/* #command-blur {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .15);
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(8px);
+} */
+
+/* Command palette's input box placeholder. */
+.monaco-inputbox input::placeholder {
+    color: rgba(255, 255, 255, .3) !important;
+}
+
+/* .monaco-workbench label {
+    color: #fff !important;
+    font-size: 14px !important;
+} */
+
+/* Container that holds the VS Code home icon. */
+.editor-group-watermark {
+    max-width: none !important;
+}
+
+.command-center-center {
+    width:  auto !important;
+}
+
+.letterpress {
+    background-repeat: no-repeat no-repeat !important;
+    background-position: center center !important;
+    background-size: contain !important;
+    width: 60% !important;
+}
