@@ -8,7 +8,7 @@
   {
     "command": "workbench.action.navigateRight",
     "key": "ctrl+l",
-    "when": "vim.mode != 'Insert'"
+    "when": "vim.mode != 'Insert' && terminalFocus != true"
   },
   {
     "command": "workbench.action.navigateUp",
@@ -29,8 +29,18 @@
   {
     // Close other tabs
     "command": "workbench.action.closeOtherEditors",
-    "key": "ctrl+w o",
-    "when": "vim.mode == 'Normal'&& (editorTextFocus || !inputFocus)" // Only in Normal Mode
+    "key": "ctrl+a o",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)" // Only in Normal Mode
+  },
+  {
+    "key": "ctrl+n",
+    "command": "workbench.action.quickOpenSelectNext",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "workbench.action.quickOpenSelectPrevious",
+    "when": "inQuickOpen"
   },
   // File Tree START
   {
@@ -155,6 +165,16 @@
     "when": "vim.mode == 'Normal' && (editorTextFocus && !textCompareEditorActive)"
   },
   {
+    "key": "space g f",
+    "command": "git.openFile",
+    "when": "vim.mode == 'Normal' && isInDiffEditor && (editorTextFocus && !textCompareEditorActive)"
+  },
+  {
+    "key": "space g d",
+    "command": "git.openChange",
+    "when": "vim.mode == 'Normal' && !isInDiffEditor && (editorTextFocus && !textCompareEditorActive)"
+  },
+  {
     "key": "escape",
     "command": "extension.vim_escape",
     "when": "editorTextFocus && vim.active && !inDebugRepl && !inlineSuggestionVisible && !dirtyDiffVisible"
@@ -248,7 +268,7 @@
   },
   {
     "command": "editor.action.rename",
-    "key": "space l r", // [R]e[n]ame
+    "key": "space r n", // [R]e[n]ame
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && editorHasRenameProvider && !editorReadonly"
   },
   {
@@ -268,6 +288,11 @@
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
   },
   {
+    "command": "search.action.focusSearchList",
+    "key": "ctrl+j",
+    "when": "searchViewletVisible && (searchInputBoxFocus || searchViewletFocus)"
+  },
+  {
     "command": "editor.action.goToReferences",
     "key": "space l r", // [G]o to [R]eferences
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
@@ -280,22 +305,22 @@
   {
     "command": "editor.action.marker.next",
     "key": "space g l",
-    "when": "vim.mode == 'Normal' && editorTextFocus"
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
   },
   {
     "command": "editor.action.marker.prev",
     "key": "space [ d",
-    "when": "vim.mode == 'Normal' && editorTextFocus"
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
   },
   {
     "command": "editor.action.marker.next",
     "key": "space ] d",
-    "when": "vim.mode == 'Normal' && editorTextFocus"
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
   },
   {
     "command": "editor.action.showHover",
     "key": "shift-k",
-    "when": "vim.mode == 'Normal' && editorTextFocus"
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
   },
   {
     "command": "editor.action.triggerParameterHints",
@@ -348,6 +373,32 @@
     "command": "vscode-harpoon.gotoEditor5",
     "key": "space 5",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  {
+    "key": "cmd+j",
+    "command": "-workbench.action.togglePanel"
+  },
+  {
+    "key": "shift+cmd+0",
+    "command": "workbench.action.toggleMaximizedPanel"
+  },
+  {
+    "key": "cmd+0",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "when": "terminal.active"
+  },
+  {
+    "key": "ctrl+`",
+    "command": "-workbench.action.terminal.toggleTerminal",
+    "when": "terminal.active"
+  },
+  {
+    "key": "cmd+0",
+    "command": "-workbench.action.focusSideBar"
+  },
+  {
+    "key": "ctrl+t",
+    "command": "workbench.action.togglePanel"
   }
   // HARPOON END
 ]
