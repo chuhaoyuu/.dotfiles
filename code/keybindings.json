@@ -318,6 +318,21 @@
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
   },
   {
+    "key": "space l f",
+    "command": "editor.action.formatDocument",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+  },
+  // {
+  //   "key": "=",
+  //   "command": "editor.action.reindentselectedlines",
+  //   "when": "vim.mode == 'Visual' && (editorTextFocus || !inputFocus) && vim.mode != 'Insert'"
+  // },
+  // {
+  //   "key": "=",
+  //   "command": "editor.action.reindentlines",
+  //   "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && vim.mode != 'Insert'"
+  // },
+  {
     "command": "editor.action.showHover",
     "key": "shift-k",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
@@ -379,7 +394,7 @@
     "command": "-workbench.action.togglePanel"
   },
   {
-    "key": "shift+cmd+0",
+    "key": "cmd+m",
     "command": "workbench.action.toggleMaximizedPanel"
   },
   {
@@ -399,6 +414,10 @@
   {
     "key": "ctrl+t",
     "command": "workbench.action.togglePanel"
+  },
+  {
+    "key": "ctrl+`",
+    "command": "workbench.action.toggleStatusbarVisibility"
   }
   // HARPOON END
 ]

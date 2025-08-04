@@ -7,6 +7,15 @@
       "silent": true
     },
     {
+      "before": ["O"],
+      "commands": ["editor.action.insertLineBefore"],
+      "after": ["i"]
+    },
+    {
+      "before": ["g", "p"],
+      "after": ["'", "[", "v", "'", "]"]
+    },
+    {
       "before": ["<C-d>"],
       "after": ["M", "<C-d>", "z", "z"]
     },
@@ -67,15 +76,17 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": false
+  },
+  "[go]": {
+    "editor.formatOnSave": false
+  },
   "gopls": {
     "ui.semanticTokens": true
   },
-  "[go.mod]": {
-    "editor.defaultFormatter": "golang.go"
-  },
-  "[go]": {
-    "editor.defaultFormatter": "golang.go"
-  },
+  "go.formatTool": "gofmt",
   "go.toolsManagement.autoUpdate": true,
   "extensions.experimental.affinity": {
     "vscodevim.vim": 1
@@ -96,19 +107,30 @@
   "window.title": " ",
   "workbench.tips.enabled": false,
   "workbench.iconTheme": "material-icon-theme",
+  "editor.tabSize": 4,
+  "editor.guides.indentation": true,
   "editor.scrollbar.verticalScrollbarSize": 12,
   "editor.cursorBlinking": "solid",
   "editor.lineNumbers": "relative",
-  "editor.fontSize": 14.5,
+  "editor.lineHeight": 1.43,
+  "editor.autoClosingBrackets": "never",
+  "editor.autoClosingQuotes": "never",
+  "editor.autoSurround": "never",
+  "editor.hideCursorInOverviewRuler": true,
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.scrollbar.vertical": "hidden",
+  "editor.overviewRulerBorder": false,
+  // "editor.fontSize": 14.5,
   "editor.fontFamily": "FiraCode Nerd Font Mono",
   "editor.fontWeight": "500",
   "editor.renderLineHighlight": "none",
   "editor.fontLigatures": "'ss04', 'zero'",
   "editor.minimap.enabled": false,
   "editor.cursorSurroundingLines": 8,
-  "chat.editor.fontSize": 14.5,
+  "editor.bracketPairColorization.enabled": false,
+  // "chat.editor.fontSize": 14.5,
   "chat.editor.fontFamily": "FiraCode Nerd Font Mono",
-  "terminal.integrated.fontSize": 14.5,
+  // "terminal.integrated.fontSize": 14.5,
   "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
   "terminal.integrated.fontWeight": "500",
   "terminal.integrated.fontLigatures.enabled": true,
@@ -135,6 +157,7 @@
     "editorLineNumber.foreground": "#737aa2",
     "editorLineNumber.activeForeground": "#38ff9c",
     "tab.activeBorder": "#2bbac5",
+    "editorOverviewRuler.background": "#0000",
     "editor.selectionHighlightBackground": "#00000000",
     "statusBarItem.remoteForeground": "#e0def4",
     "statusBarItem.remoteBackground": "#010b17",
@@ -143,10 +166,10 @@
     "statusBar.border": "#010b17",
     "sideBar.background": "#010b17",
     "sideBar.border": "#010b17",
+    "scrollbar.shadow": "#010b17",
+    "editorGutter.background": "#010b17",
     "editor.background": "#010b17",
     "panel.background": "#010b17",
-    "editorOverviewRuler.background": "#010b17",
-    "terminal.background": "#010b17",
     "terminal.foreground": "#e0def4",
     "terminal.ansiBlack": "#26233a",
     "terminal.ansiBrightBlack": "#26233a",
@@ -163,7 +186,12 @@
     "terminal.ansiCyan": "#2ccde9",
     "terminal.ansiBrightCyan": "#2ccde9",
     "terminal.ansiWhite": "#acb0d0",
-    "terminal.ansiBrightWhite": "#acb0d0"
+    "terminal.ansiBrightWhite": "#acb0d0",
+    "editorCursor.foreground": "#c0caf5",
+    "terminalCursor.foreground": "#c0caf5",
+    "editorCursor.background": "#010b17",
+    "terminalCursor.background": "#010b17",
+    "editor.selectionBackground": "#67769660"
   },
   "editor.tokenColorCustomizations": {
     "textMateRules": [
@@ -309,12 +337,10 @@
   "terminal.integrated.enableMultiLinePasteWarning": "never",
   "workbench.activityBar.orientation": "vertical",
   "editor.codeLensFontFamily": "FiraCode Nerd Font Mono",
-  "workbench.activityBar.location": "top",
   "python.analysis.typeCheckingMode": "basic",
-  "workbench.colorTheme": "Tokyo Night",
+  "python.analysis.completeFunctionParens": true,
   "vim.cursorStylePerMode.normal": "block",
   "window.systemColorTheme": "dark",
-  "window.titleBarStyle": "custom",
   "vscode_vibrancy.opacity": 0,
   "vscode_vibrancy.refreshInterval": 10,
   "terminal.integrated.gpuAcceleration": "off",
@@ -323,12 +349,7 @@
   "editor.roundedSelection": false,
   "editor.selectionHighlight": false,
   "editor.occurrencesHighlight": "off",
-  // "vscode_custom_css.imports": [
-  //   "file:///Users/cfh00810744/.dotfiles/code/custom-vs.css",
-  //   "file:///Users/cfh00810744/.dotfiles/code/vs-script.js"
-  // ],
   "workbench.editor.showTabs": "none",
-  "workbench.statusBar.visible": true,
   "github.copilot.chat.commitMessageGeneration.instructions": [
     {
       "file": ".github/.copilot-commit-message-instructions.md"
@@ -336,5 +357,11 @@
   ],
   "workbench.editor.tabActionCloseVisibility": false,
   "window.customTitleBarVisibility": "windowed",
-  "window.commandCenter": false
+  "window.restoreFullscreen": true,
+  "window.commandCenter": false,
+  "workbench.activityBar.location": "top",
+  "workbench.colorTheme": "Rosé Pine",
+  "vs-kubernetes": {
+    "vs-kubernetes.crd-code-completion": "disabled"
+  }
 }
